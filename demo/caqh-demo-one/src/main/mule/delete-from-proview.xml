@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="delete-from-proviewFlow" doc:id="bbf7bd0d-39b7-492f-8ae8-413de09b1382" >
+		<http:listener doc:name="8081/deleteFromProview" doc:id="3414bc66-c843-4f56-b5de-8e21f998938d" config-ref="HTTP_Listener_config" path="/deleteFromProview"/>
+		<caqh:delete-from-proview-api doc:name="Delete from proview" doc:id="6dbae9ed-6244-419a-a407-85deb9446233" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="91dbe06b-4bbb-4530-ab8d-0f8f60592115" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

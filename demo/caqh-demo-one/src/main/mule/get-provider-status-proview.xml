@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get-provider-status-proviewFlow" doc:id="bb7ac45a-1b5e-4a44-b69f-b34c39418658" >
+		<http:listener doc:name="8081/getProviderStatusPv" doc:id="68bcfeba-83bb-4b74-89a2-1b174390d7ce" config-ref="HTTP_Listener_config" path="/getProviderStatusPv"/>
+		<caqh:get-provider-status-proview doc:name="Get provider status-Proview" doc:id="8c94f1f5-03d8-467b-bb92-17094bc81936" config-ref="CAQH_Config" Organization_Id="#[attributes.queryParams.Organization_Id]" Caqh_Provider_Id="#[attributes.queryParams.Caqh_Provider_Id]"/>
+		<ee:transform doc:name="response" doc:id="0982f8fa-e3fc-4d6a-9025-a7617197cd0f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

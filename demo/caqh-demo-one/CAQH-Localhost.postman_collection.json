@@ -1,0 +1,834 @@
+{
+	"info": {
+		"_postman_id": "57777850-d675-40b5-8b4f-da56227104bf",
+		"name": "CAQH-Localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAddStatus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/getAddStatus?batch_id=f167ad57-834c-e911-a43a-0050569b83ed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"getAddStatus"
+					],
+					"query": [
+						{
+							"key": "Product",
+							"value": "PV",
+							"disabled": true
+						},
+						{
+							"key": "batch_id",
+							"value": "f167ad57-834c-e911-a43a-0050569b83ed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDeleteStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/getDeleteStatus?batch_id=a758a7f2-7f4c-e911-a43a-0050569b83ed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"getDeleteStatus"
+					],
+					"query": [
+						{
+							"key": "batch_id",
+							"value": "a758a7f2-7f4c-e911-a43a-0050569b83ed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProviderDocument",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cqw$d0\"Pj*AhXCO37:W/X#`LB@YZVr/+",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/getProviderDocument?caqhProvider_id=16033455&organization_id=6013&doc_Type=100000058",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"getProviderDocument"
+					],
+					"query": [
+						{
+							"key": "caqhProvider_id",
+							"value": "16033455"
+						},
+						{
+							"key": "organization_id",
+							"value": "6013"
+						},
+						{
+							"key": "doc_Type",
+							"value": "100000058"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUpdateStatus",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/getUpdateStatus?batch_id=09668a9e-7e4c-e911-a43a-0050569b83ed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"getUpdateStatus"
+					],
+					"query": [
+						{
+							"key": "batch_id",
+							"value": "09668a9e-7e4c-e911-a43a-0050569b83ed"
+						},
+						{
+							"key": "Product",
+							"value": "PV",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProviderStatusPv",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/getProviderStatusPv?Caqh_Provider_Id=16033455&Organization_Id=6013",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"getProviderStatusPv"
+					],
+					"query": [
+						{
+							"key": "Caqh_Provider_Id",
+							"value": "16033455"
+						},
+						{
+							"key": "Organization_Id",
+							"value": "6013"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProviderStatusDa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/getProviderStatusDa?Caqh_Provider_Id=16033455&Organization_Id=6013",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"getProviderStatusDa"
+					],
+					"query": [
+						{
+							"key": "Caqh_Provider_Id",
+							"value": "16033455"
+						},
+						{
+							"key": "Organization_Id",
+							"value": "6013"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProviderCredentials",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/getProviderCredentials?caqhProviderId=16033572&organizationId=6013&attestationDate=02/12/2019&credentialSection=Education",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"getProviderCredentials"
+					],
+					"query": [
+						{
+							"key": "caqhProviderId",
+							"value": "16033572"
+						},
+						{
+							"key": "organizationId",
+							"value": "6013"
+						},
+						{
+							"key": "attestationDate",
+							"value": "02/12/2019"
+						},
+						{
+							"key": "credentialSection",
+							"value": "Education"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addToRosterDa",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n  \"provider\": {\r\n   \"first_name\": \"Jennifer\",\r\n   \"middle_name\": \"\",\r\n   \"last_name\": \"Simons\",\r\n   \"name_suffix\": \"\",\r\n   \"gender\": \"F\",\r\n   \"address1\": \"abcd1\",\r\n   \"address2\": \"\",\r\n   \"city\": \"Anchorage\",\r\n   \"state\": \"AK\",\r\n   \"zip\": \"99501\",\r\n   \"zip_extn\": \"\",\r\n   \"phone\": \"\",\r\n   \"fax\": \"\",\r\n   \"email\": \"\",\r\n   \"practice_state\": \"\",\r\n   \"birthdate\": \"2008-01-01\",\r\n   \"ssn\": \"\",\r\n   \"short_ssn\": \"\",\r\n   \"dea\": \"\",\r\n   \"upin\": \"\",\r\n   \"type\": \"\",\r\n   \"tax_id\": \"\",\r\n   \"npi\": \"\",\r\n   \"license_state\": \"\",\r\n   \"license_number\": \"\"\r\n  },\r\n  \"caqhProviderId\": \"100023\",\r\n  \"poProviderId\": \"123445\",\r\n  \"organizationId\": \"6013\"\r\n }\r\n]"
+				},
+				"url": {
+					"raw": "http://localhost:8081/addToRosterDa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"addToRosterDa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addToRosterPv",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n  \"provider\": {\r\n   \"first_name\": \"Jennifer\",\r\n   \"middle_name\": \"\",\r\n   \"last_name\": \"Simons\",\r\n   \"name_suffix\": \"\",\r\n   \"gender\": \"F\",\r\n   \"address1\": \"abcd1\",\r\n   \"address2\": \"\",\r\n   \"city\": \"Anchorage\",\r\n   \"state\": \"AK\",\r\n   \"zip\": \"99501\",\r\n   \"zip_extn\": \"\",\r\n   \"phone\": \"\",\r\n   \"fax\": \"\",\r\n   \"email\": \"\",\r\n   \"practice_state\": \"\",\r\n   \"birthdate\": \"2008-01-01\",\r\n   \"ssn\": \"\",\r\n   \"short_ssn\": \"\",\r\n   \"dea\": \"\",\r\n   \"upin\": \"\",\r\n   \"type\": \"\",\r\n   \"tax_id\": \"\",\r\n   \"npi\": \"\",\r\n   \"license_state\": \"\",\r\n   \"license_number\": \"\"\r\n  },\r\n  \"caqhProviderId\": \"100023\",\r\n  \"poProviderId\": \"123445\",\r\n  \"organizationId\": \"6013\"\r\n }\r\n]"
+				},
+				"url": {
+					"raw": "http://localhost:8081/addToRosterPv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"addToRosterPv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateToRosterDa",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"100023\",\r\n  \"poProviderId\": \"123445\"\r\n },\r\n {\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"16033455\",\r\n  \"poProviderId\": \"\"\r\n\r\n }\r\n\r\n]"
+				},
+				"url": {
+					"raw": "http://localhost:8081/updateToRosterDa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"updateToRosterDa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateToRosterPv",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"100023\",\r\n  \"poProviderId\": \"123445\"\r\n  \r\n },\r\n {\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"16033455\",\r\n  \"poProviderId\": \"\"\r\n }\r\n\r\n]"
+				},
+				"url": {
+					"raw": "http://localhost:8081/updateToRosterPv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"updateToRosterPv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteFromRosterDa",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n[{\r\n\t\t\"organizationId\": \"6013\",\r\n\t\t\"caqhProviderId\": \"16032633\"\r\n\t}\r\n]\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/deleteFromRosterDa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"deleteFromRosterDa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteFromRosterPv",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n[{\r\n\t\t\"organizationId\": \"6013\",\r\n\t\t\"caqhProviderId\": \"16032633\"\r\n\t}\r\n]\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/deleteFromRosterPv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"deleteFromRosterPv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-updateProviewApiDa",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"100023\",\r\n  \"poProviderId\": \"123445\"\r\n },\r\n {\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"16033455\",\r\n  \"poProviderId\": \"\"\r\n  }\r\n\r\n]"
+				},
+				"url": {
+					"raw": "http://localhost:8081/updateProviewApiDa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"updateProviewApiDa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-updateOnProview",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n[{\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"100023\",\r\n  \"poProviderId\": \"123445\"\r\n },\r\n {\r\n  \"organizationId\": \"6013\",\r\n  \"caqhProviderId\": \"16033455\",\r\n  \"poProviderId\": \"\"\r\n }\r\n\r\n]"
+				},
+				"url": {
+					"raw": "http://localhost:8081/updateOnProview",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"updateOnProview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteFromProview",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n[{\r\n\t\t\"organizationId\": \"6013\",\r\n\t\t\"caqhProviderId\": \"16032633\"\r\n\t}\r\n]\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/deleteFromProview",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"deleteFromProview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProviewDa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "CDPHP@123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SalesforceHealth",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n[{\r\n\t\t\"organizationId\": \"6013\",\r\n\t\t\"caqhProviderId\": \"16032633\"\r\n\t}\r\n]\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8081/deleteProviewDa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"deleteProviewDa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addProviderFlowSfDemo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/addProviderFlow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"addProviderFlow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProviderFlowSfDemo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/UpdateProviderFlow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"UpdateProviderFlow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProviderFlowSfDemo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/deleteProviderFlow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"deleteProviderFlow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAllSfDemo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/deleteAllSF",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"deleteAllSF"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

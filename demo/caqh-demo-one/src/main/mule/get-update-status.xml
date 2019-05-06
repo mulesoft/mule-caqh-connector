@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get-update-statusFlow" doc:id="854e254c-976c-49c4-9dbe-dd0b8eced212" >
+		<http:listener doc:name="8081/getUpdateStatus" doc:id="fabd8cea-0747-420d-9374-f370f39e3c4a" config-ref="HTTP_Listener_config" path="/getUpdateStatus"/>
+		<caqh:get-result-of-update-request doc:name="Get status of update request" doc:id="636b97c0-e132-4d6a-a956-ee083d328544" config-ref="CAQH_Config" batch_id="#[attributes.queryParams.batch_id]"/>
+		<ee:transform doc:name="response" doc:id="47fe96d0-d19b-4ed8-9e98-feeb4f39d798" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

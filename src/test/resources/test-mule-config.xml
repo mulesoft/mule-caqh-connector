@@ -1,0 +1,38 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh" xmlns:doc="http://www.springframework.org/schema/aop"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+    <configuration-properties file="credentials.properties"/>
+    <caqh:config name="CAQH_Config1" address="${caqh.address}" >
+        <caqh:connection username="${caqh.userName}" password="${caqh.password}" />
+    </caqh:config>
+
+    <flow name="get-add-statusFlow" >
+        <caqh:get-result-of-add-request config-ref="CAQH_Config1" batch_id="f5b9b5b7-e140-e911-a43a-0050569b83ed"/>
+    </flow>
+
+    <flow name="get-update-statusFlow" >
+        <caqh:get-result-of-update-request config-ref="CAQH_Config1" batch_id="a579a90a-6b3c-e911-ad8b-0050569b83ed"/>
+    </flow>
+    <flow name="get-delete-statusFlow" >
+        <caqh:get-result-of-delete-request config-ref="CAQH_Config1" batch_id="bbf6c551-c940-e911-a43a-0050569b83ed"/>
+    </flow>
+    <flow name="get-provider-status-proviewFlow" >
+        <caqh:get-provider-status-proview doc:name="Get provider status Proview" config-ref="CAQH_Config1" Organization_Id="6013" Caqh_Provider_Id="16033455">
+
+        </caqh:get-provider-status-proview>
+    </flow>
+    <flow name="get-provider-status-directAssureFlow" >
+        <caqh:get-provider-status-da doc:name="Get provider status DirectAssure" config-ref="CAQH_Config1" Organization_Id="6013" Caqh_Provider_Id="16033455">
+        </caqh:get-provider-status-da>
+    </flow>
+    <flow name="get-provider-credentialsFlow" >
+        <caqh:get-provider-credentials config-ref="CAQH_Config1" caqhProviderId="16033572" organizationId="6013" attestationDate="02/12/2019" credentialSection="Education"/>
+    </flow>
+    <flow name="get-provider-documentFlow"  >
+        <caqh:get-provider-document config-ref="CAQH_Config1" caqhProvider_id="16033572" organization_id="6013" doc_Type="100000058"/>
+    </flow>
+
+</mule>

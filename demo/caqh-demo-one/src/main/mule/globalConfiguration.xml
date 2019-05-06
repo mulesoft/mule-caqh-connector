@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fd38275c-4857-49e6-bfbb-f792df003f6a" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="5e3aa6b2-d75b-4b66-974d-ed3df3a55ac7" file="configuration.yaml" />
+	<caqh:config name="CAQH_Config" doc:name="CAQH Config" doc:id="78302b0b-2717-4c79-8194-9ec01ffa7635" address="${caqh.address}" >
+		<caqh:connection username="${caqh.user}" password="${caqh.password}" />
+		<expiration-policy maxIdleTime="2" timeUnit="MINUTES" />
+	</caqh:config>
+	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="b90a328d-08df-44f0-9db4-bcdface100f5" >
+		<salesforce:basic-connection username="${sfdc.username}" password="${sfdc.password}" securityToken="${sfdc.securityToken}" url="${sfdc.url}" />
+	</salesforce:sfdc-config>
+</mule>

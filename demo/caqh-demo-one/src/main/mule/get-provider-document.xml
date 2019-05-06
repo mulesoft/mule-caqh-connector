@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get-provider-documentFlow" doc:id="ee84e08c-d6df-48e1-8b1f-27899b395b48" >
+		<http:listener doc:name="8081/getProviderDocument" doc:id="a5afd1fe-9ca6-4bc9-b8e8-539e9f26950f" config-ref="HTTP_Listener_config" path="/getProviderDocument"/>
+		<caqh:get-provider-document doc:name="Get-document" doc:id="d69eda98-0278-449b-bce8-a4d0a97771e3" config-ref="CAQH_Config" caqhProvider_id="#[attributes.queryParams.caqhProvider_id]" organization_id="#[attributes.queryParams.organization_id]" doc_Type="#[attributes.queryParams.doc_Type]"/>
+		<ee:transform doc:name="Transform Message" doc:id="4445a11d-c68a-479a-993b-219efab75f8b" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/dw
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

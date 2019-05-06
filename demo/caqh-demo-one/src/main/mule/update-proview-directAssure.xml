@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="update-proview-directAssureFlow" doc:id="635522b9-b61d-4d4f-b9fa-06d87b10c400" >
+		<http:listener doc:name="8081/updateProviewApiDa" doc:id="66f84ff0-7142-42fb-bd9e-00ca622cacc8" config-ref="HTTP_Listener_config" path="/updateProviewApiDa"/>
+		<caqh:update-to-proview-api-da doc:name="Update proview-DirectAssure" doc:id="3b10be41-c77b-47f3-9456-d84e1e862edf" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="fb9ca8cd-1484-475a-bfb1-f8a50a54f3b2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="add-to-roster-pvFlow" doc:id="ceff8a59-f61f-4e66-95a7-aa1fdec264ee" >
+		<http:listener doc:name="8081/addToRosterPv" doc:id="bb8ad973-30d8-403c-ab50-dbd364bec9b4" config-ref="HTTP_Listener_config" path="/addToRosterPv"/>
+		<caqh:add-to-roster-request-pv doc:name="Add to roster request Proview" doc:id="757d3a19-c763-4e9d-ac8a-6c45e52011e0" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="response" doc:id="2ccf9955-97e5-46a9-87ab-7f86d1da3451" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

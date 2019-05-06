@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get-add-statusFlow" doc:id="ca7dbc98-fcd2-44d4-b009-2a0d92c8a9e6" >
+		<http:listener doc:name="8081/getAddStatus" doc:id="5a8aead4-7b6f-4072-bc22-fedb43f5bcd7" path="/getAddStatus" config-ref="HTTP_Listener_config"/>
+		<caqh:get-result-of-add-request doc:name="Get status of add request" doc:id="b4029d9e-853e-4376-b997-5ed1b89eb04d" batch_id="f167ad57-834c-e911-a43a-0050569b83ed" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="response" doc:id="48061971-b846-4408-ade0-9f0f76359c35" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

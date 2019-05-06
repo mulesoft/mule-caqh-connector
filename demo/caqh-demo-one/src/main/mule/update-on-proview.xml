@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="update-on-proviewFlow" doc:id="2dffff87-6277-44bf-a772-7cc7551958e1" >
+		<http:listener doc:name="8081/updateOnProview" doc:id="7204c34c-5b78-4734-84a6-3ab8b421b0f4" config-ref="HTTP_Listener_config" path="/updateOnProview"/>
+		<caqh:update-to-roster-request-pv doc:name="Update on proview" doc:id="f614632c-9d38-4ae9-8dd7-1a2ad43c9dd9" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="f33f08f4-c668-4e30-969c-9aeff0d92f1c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

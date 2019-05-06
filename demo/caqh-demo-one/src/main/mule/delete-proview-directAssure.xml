@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="delete-proview-directAssureFlow" doc:id="26314630-5f7e-479d-a0f7-7779ac2656f3" >
+		<http:listener doc:name="8081/deleteProviewDa" doc:id="d1162b88-ec91-4710-9e1d-4866286b0dd7" config-ref="HTTP_Listener_config" path="/deleteProviewDa"/>
+		<caqh:delete-from-proview-api-da doc:name="Delete proview-DirectAssure" doc:id="84445ba4-c3c4-405f-aa0e-916b71626fbc" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="0b2ed370-1f78-4fa3-9062-2542b1c50e34" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

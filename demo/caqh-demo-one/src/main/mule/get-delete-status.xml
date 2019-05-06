@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get-delete-statusFlow" doc:id="f299cd0c-4ccd-4acf-a8d6-030eafaa6236" >
+		<http:listener doc:name="8081/getDeleteStatus" doc:id="5d734144-3b7b-4b51-8a0f-5775db36482b" config-ref="HTTP_Listener_config" path="/getDeleteStatus"/>
+		<caqh:get-result-of-delete-request doc:name="Get status of delete request" doc:id="5e419c5b-c4ba-4373-96b9-be20181b036b" config-ref="CAQH_Config" batch_id="#[attributes.queryParams.batch_id]"/>
+		<ee:transform doc:name="response" doc:id="e5239da1-88e8-4869-9658-282cc290cdee" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

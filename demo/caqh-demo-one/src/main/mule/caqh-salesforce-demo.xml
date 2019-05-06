@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:salesforce-composite="http://www.mulesoft.org/schema/mule/salesforce-composite" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/salesforce-composite http://www.mulesoft.org/schema/mule/salesforce-composite/current/mule-salesforce-composite.xsd">
+	<flow name="caqh-salesforce-createFlow" doc:id="77f703d8-8382-469f-817f-ee38986d2b5a" >
+		<caqh:get-provider-credentials doc:name="Get Provider Credentials" doc:id="8618a16a-9264-42e4-99ee-f39caf5da3b5" config-ref="CAQH_Config" caqhProviderId="#[attributes.queryParams.caqhProviderId]" organizationId="#[attributes.queryParams.organizationId]" attestationDate="#[attributes.queryParams.attestationDate]"/>
+		<ee:transform doc:name="mapping from CAQH-to-SF" doc:id="b2b0cb45-1e08-4f5f-965b-9b16df973eae" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+	LastName: payload.Provider.LastName,
+	FirstName: payload.Provider.FirstName,
+	CAQH_Provider_ID__c: "16033455",
+	CAQH_organization_id__c: "6013",
+	Provider_name__c: payload.Provider.MiddleName,
+	caqh_batch_id__c: ""
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<salesforce:create-single type="Contact" doc:name="Create provider in SF" doc:id="be9f4b4c-82cd-4282-998a-54ab48e3b9a5" config-ref="Salesforce_Config"/>
+		<ee:transform doc:name="Java-JSON-SFresponse" doc:id="b586869e-f46d-46a1-bf10-fb6d7841b42d" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="salesforce-caqh-getFromSfFlow" doc:id="6d2b8180-b6fc-4c48-90af-1a4b4eb97c01" >
+		<http:listener doc:name="8081/createCaqhProviderInSalesforce" doc:id="cb3b28fc-9323-48bc-9e8b-45227b38f35c" config-ref="HTTP_Listener_config" path="/addProviderFlow" />
+		<flow-ref doc:name="caqh-salesforce-createFlow" doc:id="92c6ac44-2e03-4bc8-a8f0-4b781b940a07" name="caqh-salesforce-createFlow"/>
+		<set-variable value="#[payload.id]" doc:name="Set contactId" doc:id="ee775ca4-c263-4189-bfee-fb6ef229c695" variableName="contactId"/>
+		<salesforce:query doc:name="query SF provider" doc:id="d87e6313-dd22-4515-bdbe-0e1dcbeb7ce0" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query >SELECT firstName, LastName, Id,CAQH_Provider_ID__c,SF_Provider_ID__c,CAQH_organization_id__c,Provider_name__c,caqh_batch_id__c from CONTACT where Id = ':id'</salesforce:salesforce-query>
+			<salesforce:parameters ><![CDATA[#[output application/java
+---
+{
+	id : payload.id
+}]]]></salesforce:parameters>
+		</salesforce:query>
+		<ee:transform doc:name="mapping-from-SF-to-CAQH" doc:id="9de1d0f7-e691-4083-9318-15ae7d6e315e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[[{
+  "provider": {
+   "first_name": payload[0].FirstName,
+   "middle_name": payload[0].Provider_name__c,
+   "last_name": payload[0].LastName,
+   "name_suffix": "",
+   "gender": "F",
+   "address1": payload[0].caqh_batch_id__c,
+   "address2": payload[0].Id,
+   "city": "Anchorage",
+   "state": "AK",
+   "zip": "99501",
+   "zip_extn": payload[0].SF_Provider_ID__c,
+   "phone": "",
+   "fax": "",
+   "email": "",
+   "practice_state": "",
+   "birthdate": "2008-01-01",
+   "ssn": "",
+   "short_ssn": "",
+   "dea": "",
+   "upin": "",
+   "type": "",
+   "tax_id": "",
+   "npi": "",
+   "license_state": "",
+   "license_number": ""
+  },
+  "caqh_provider_id": "16033455",
+  "po_provider_id": "100007",
+  "last_recredential_date": "",
+  "next_recredential_date": "",
+  "delegation_flag": "",
+  "application_type": "A",
+  "affiliation_flag": "",
+  "organization_id": "6013",
+  "region_id": ""
+ }
+]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<caqh:add-to-roster-request-pv doc:name="Add to roster request Proview" doc:id="28c310fa-4f69-47dd-972a-6fe77ba616d1" config-ref="CAQH_Config"/>
+		<set-variable value="#[payload.batch_Id]" doc:name="Set batchId" doc:id="293244da-1731-493d-bd1a-9de41e8a28b8" variableName="batch_id"/>
+		<ee:transform doc:name="wait-for-batchId" doc:id="3ec54569-8fc1-4e50-9b38-6c5a607871b3" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::Runtime
+output application/json
+---
+ payload
+wait 300000]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<caqh:get-result-of-add-request doc:name="Get status of add request" doc:id="dd6413c7-27a9-4349-8bc1-669b7b604571" config-ref="CAQH_Config" batch_id="#[payload.batch_Id]"/>
+		<ee:transform doc:name="mapping CAQH to SF" doc:id="807a13ed-ae8b-48b0-9ff8-439e5f4e428e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[output application/java
+---
+{
+	Id: vars.contactId,
+	LastName: "SMITH",
+	FirstName: payload.batch_status,
+	CAQH_Provider_ID__c: payload.roster_result.caqh_provider_id,
+	SF_Provider_ID__c: "",
+	CAQH_organization_id__c: payload.roster_result.organization_id,
+	Provider_name__c: payload.roster_result.po_provider_id,
+	caqh_batch_id__c: vars.batch_id
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<salesforce:update-single type="Contact" doc:name="update batchId" doc:id="cf270599-efaa-457c-bb11-8604fd4d2035" config-ref="Salesforce_Config">
+		</salesforce:update-single>
+		<ee:transform doc:name="Java-JSON-CAQHresponse" doc:id="6dc04438-2fc3-426e-802a-ea4e86377927" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="caqh-salesforce-updateFlow" doc:id="b49b5ba1-820b-4e6a-9986-f2fbc09d3781" >
+		<http:listener doc:name="Listener" doc:id="ba1444b3-7892-4b57-9375-1cb1d1e01a1e" config-ref="HTTP_Listener_config" path="/UpdateProviderFlow"/>
+		<salesforce:query doc:name="query SF data" doc:id="5dd6c9f1-14ed-489c-8684-5235b8ad3af2" config-ref="Salesforce_Config" >
+			<salesforce:salesforce-query >SELECT firstName, LastName, Id,CAQH_Provider_ID__c,SF_Provider_ID__c,CAQH_organization_id__c,Provider_name__c,caqh_batch_id__c from CONTACT where name = ':name'</salesforce:salesforce-query>
+			<salesforce:parameters ><![CDATA[#[output application/java
+---
+{
+	name : "kiuwxinj xwehonru"
+}]]]></salesforce:parameters>
+		</salesforce:query>
+		<ee:transform doc:name="mapping SF to CAQH" doc:id="e5c76548-d315-4650-926b-0e91109c77a9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[output application/java
+---
+ [{ 
+  "caqh_provider_id": "16033455",
+  "organization_id": payload[0].CAQH_organization_id__c,
+  "po_provider_id": payload[0].Id,
+  "last_recredential_date": "",
+  "next_recredential_date": "05/05/2019",
+  "delegation_flag": "Y",
+  "application_type": "A",
+  "affiliation_flag": ""
+}]
+  ]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<caqh:update-to-roster-request-pv-by-put-request doc:name="Update to roster request Proview" doc:id="ab1a816d-079c-4f7b-ba5b-fcc506c0422a" config-ref="CAQH_Config">
+		</caqh:update-to-roster-request-pv-by-put-request>
+		<ee:transform doc:name="wait for batchId" doc:id="87170011-c798-4ef4-9019-ce3edcadd44c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::Runtime
+output application/json
+---
+ payload
+wait 300000]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<caqh:get-result-of-update-request doc:name="Get status of update request" doc:id="3ce3bd09-4b45-403e-bf00-8ab7a50b41ef" config-ref="CAQH_Config" batch_id="#[payload.batch_Id]" />
+		<ee:transform doc:name="Java-JSON-CAQHresponse" doc:id="c8df2577-1361-4891-9156-d81a2724ce83" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="caqh-salesforce-deleteFromCaqhFlow" doc:id="f3897a1e-9b51-4199-88f6-049ad53de98d" >
+		<http:listener doc:name="Listener" doc:id="2a976161-68b5-4ad9-b987-1c36f9752b7e" config-ref="HTTP_Listener_config" path="/deleteProviderFlow"/>
+		<salesforce:query doc:name="Query SF data" doc:id="fc876eea-bfa5-453e-82f5-b005c6121189" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query >SELECT firstName, LastName, Id,CAQH_Provider_ID__c,SF_Provider_ID__c,CAQH_organization_id__c,Provider_name__c,caqh_batch_id__c from CONTACT where name = ':name'</salesforce:salesforce-query>
+			<salesforce:parameters ><![CDATA[#[output application/java
+---
+{
+	name : "kiuwxinj xwehonru"
+}]]]></salesforce:parameters>
+		</salesforce:query>
+		<ee:transform doc:name="mapping from SF to CAQH" doc:id="82eab782-d757-4d5a-ad44-0ed949636932" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+ [{
+	"caqh_provider_id": payload[0].CAQH_Provider_ID__c,
+	"organization_id": payload[0].CAQH_organization_id__c
+}]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<caqh:delete-from-roster-request-pv doc:name="Delete from roster request Proview" doc:id="a30ce8b3-a723-4a9a-9a3d-b8d3b218970a" config-ref="CAQH_Config" >
+		</caqh:delete-from-roster-request-pv>
+		<ee:transform doc:name="wait for batchId" doc:id="2f00e69b-aefc-42ae-a1ee-8d9ea6dccc50" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+import * from dw::Runtime
+output application/json
+---
+ payload
+wait 300000]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<caqh:get-result-of-delete-request doc:name="Get status of delete request" doc:id="c511360e-448d-4f25-b0fe-c5dc96c4e1a8" config-ref="CAQH_Config" batch_id="#[payload.batch_Id]" />
+		<ee:transform doc:name="Java-JSON-CAQHresponse" doc:id="c9a97add-73e4-40e7-9e3b-961fafd53475" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="caqh-salesforce-deleteFlow" doc:id="db0f7663-0d9b-4482-94fe-e8edd5b2b237" >
+		<http:listener doc:name="Listener" doc:id="31a38347-88de-4838-ac00-df234ec50352" config-ref="HTTP_Listener_config" path="/deleteAllSF"/>
+		<salesforce:query-all doc:name="Query all" doc:id="ff5ed820-81a2-4fde-bf89-337234ae1f8e" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query >Select Id from Contact where name =':name'</salesforce:salesforce-query>
+			<salesforce:parameters ><![CDATA[#[output application/java
+---
+{
+	name : "kiuwxinj xwehonru"
+}]]]></salesforce:parameters>
+		</salesforce:query-all>
+		<salesforce:delete-multiple doc:name="Delete multiple" doc:id="66076587-382a-4300-b902-2d3b22224295" config-ref="Salesforce_Config">
+			<salesforce:delete-ids ><![CDATA[#[output application/java
+---
+payload.Id]]]></salesforce:delete-ids>
+		</salesforce:delete-multiple>
+		<ee:transform doc:name="Java-JSON-SFresponse" doc:id="325df795-79f5-4f75-82ae-9f1bf287de44" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

@@ -1,0 +1,8 @@
+{
+      "type": "object",
+      "properties": {
+        "batch_Id": {
+          "type": "string"
+        }
+      }
+}

@@ -1,0 +1,18 @@
+caqh:
+  address: ""
+  user: ""
+  password: ""
+  
+sfdc:  
+  username: ""
+  password: ""
+  securityToken: ""
+  url: ""
+  
+tls:
+  type: ""
+  path: ""
+  alias: ""
+  keyPassword: ""
+  password: ""
+  

@@ -1,0 +1,27 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+    <configuration-properties file="credentials.properties"/>
+    <caqh:config name="CAQH_Config1" address="${caqh.address}" >
+        <caqh:connection username="${caqh.userName}" password="${caqh.password}" />
+    </caqh:config>
+    <flow name="update-to-roster-request-da-by-put-requestFlow" >
+        <caqh:update-to-roster-request-da-by-put-request  config-ref="CAQH_Config1"/>
+    </flow>
+
+    <flow name="update-to-roster-request-pv-by-put-requestFlow" >
+        <caqh:update-to-roster-request-pv-by-put-request  config-ref="CAQH_Config1"/>
+    </flow>
+
+    <flow name="delete-from-roster-request-da-by-put-requestFlow" >
+        <caqh:delete-from-roster-request-da-by-put-request  config-ref="CAQH_Config1"/>
+    </flow>
+
+    <flow name="delete-from-roster-request-pvFlow" >
+        <caqh:delete-from-roster-request-pv  config-ref="CAQH_Config1"/>
+    </flow>
+
+</mule>

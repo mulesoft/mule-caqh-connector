@@ -1,0 +1,154 @@
+{
+"type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "object",
+          "properties": {
+            "first_name": {
+              "type": "string"
+            },
+            "middle_name": {
+              "type": "string"
+            },
+            "last_name": {
+              "type": "string"
+            },
+            "name_suffix": {
+              "type": "string"
+            },
+            "gender": {
+              "type": "string"
+            },
+            "address1": {
+              "type": "string"
+            },
+            "address2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            },
+            "zip_extn": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            },
+            "fax": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "practice_state": {
+              "type": "string"
+            },
+            "birthdate": {
+              "type": "string"
+            },
+            "ssn": {
+              "type": "string"
+            },
+            "short_ssn": {
+              "type": "string"
+            },
+            "dea": {
+              "type": "string"
+            },
+            "upin": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "tax_id": {
+              "type": "string"
+            },
+            "npi": {
+              "type": "string"
+            },
+            "license_state": {
+              "type": "string"
+            },
+            "license_number": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "first_name",
+            "middle_name",
+            "last_name",
+            "name_suffix",
+            "gender",
+            "address1",
+            "address2",
+            "city",
+            "state",
+            "zip",
+            "zip_extn",
+            "phone",
+            "fax",
+            "email",
+            "practice_state",
+            "birthdate",
+            "ssn",
+            "short_ssn",
+            "dea",
+            "upin",
+            "type",
+            "tax_id",
+            "npi",
+            "license_state",
+            "license_number"
+          ]
+        },
+        "caqh_provider_id": {
+          "type": "string"
+        },
+        "po_provider_id": {
+          "type": "string"
+        },
+        "last_recredential_date": {
+          "type": "string"
+        },
+        "next_recredential_date": {
+          "type": "string"
+        },
+        "delegation_flag": {
+          "type": "string"
+        },
+        "application_type": {
+          "type": "string"
+        },
+        "affiliation_flag": {
+          "type": "string"
+        },
+        "organization_id": {
+          "type": "string"
+        },
+        "region_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "caqh_provider_id",
+        "po_provider_id",
+        "last_recredential_date",
+        "next_recredential_date",
+        "delegation_flag",
+        "application_type",
+        "affiliation_flag",
+        "organization_id",
+        "region_id"
+      ]
+    }
+}

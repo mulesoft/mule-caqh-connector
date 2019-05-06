@@ -1,0 +1,2841 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "Provider": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "@xmlns:xsi": {
+          "type": "string"
+        },
+        "@xmlns:xsd": {
+          "type": "string"
+        },
+        "@ProviderID": {
+          "type": "string"
+        },
+        "@ProviderAttestID": {
+          "type": "string"
+        },
+        "@AttestDate": {
+          "type": "string"
+        },
+        "@ID": {
+          "type": "string"
+        },
+        "@xmlns": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "MiddleName": {
+          "type": "string"
+        },
+        "Suffix": {
+          "type": "string"
+        },
+        "PrimaryPracticeState": {
+          "type": "string"
+        },
+        "OtherNameFlag": {
+          "type": "string"
+        },
+        "BirthDate": {
+          "type": "string"
+        },
+        "USEligibleFlag": {
+          "type": "string"
+        },
+        "SSN": {
+          "type": "string"
+        },
+        "NID": {
+          "type": "string"
+        },
+        "DEAFlag": {
+          "type": "string"
+        },
+        "CDSFlag": {
+          "type": "string"
+        },
+        "UPIN": {
+          "type": "string"
+        },
+        "UPINFlag": {
+          "type": "string"
+        },
+        "NPIFlag": {
+          "type": "string"
+        },
+        "NPI": {
+          "type": "string"
+        },
+        "MedicareProviderFlag": {
+          "type": "string"
+        },
+        "MedicaidProviderFlag": {
+          "type": "string"
+        },
+        "OtherGraduateEducationFlag": {
+          "type": "string"
+        },
+        "FellowshipTrainingFlag": {
+          "type": "string"
+        },
+        "TeachingAppointmentFlag": {
+          "type": "string"
+        },
+        "SecondarySpecialtyFlag": {
+          "type": "string"
+        },
+        "OtherSpecialtyFlag": {
+          "type": "string"
+        },
+        "HospitalPrivilegeFlag": {
+          "type": "string"
+        },
+        "HospitalAdmittingArrangements": {
+          "type": "string"
+        },
+        "WorkHistoryGapFlag": {
+          "type": "string"
+        },
+        "ActiveMilitaryFlag": {
+          "type": "string"
+        },
+        "CitizenshipStatus": {
+          "type": "string"
+        },
+        "VisaNumber": {
+          "type": "string"
+        },
+        "ECFMGFlag": {
+          "type": "string"
+        },
+        "ECFMGNumber": {
+          "type": "string"
+        },
+        "ECFMGIssueDate": {
+          "type": "string"
+        },
+        "HospitalBasedFlag": {
+          "type": "string"
+        },
+        "EmailAddress": {
+          "type": "string"
+        },
+        "VisaType": {
+          "type": "string"
+        },
+        "VisaStatus": {
+          "type": "string"
+        },
+        "BirthCity": {
+          "type": "string"
+        },
+        "BirthState": {
+          "type": "string"
+        },
+        "SpouseLastName": {
+          "type": "string"
+        },
+        "SpouseFirstName": {
+          "type": "string"
+        },
+        "EmergencyContactLastName": {
+          "type": "string"
+        },
+        "EmergencyContactFirstName": {
+          "type": "string"
+        },
+        "EmergencyContactMiddleName": {
+          "type": "string"
+        },
+        "EmergencyContactPhone": {
+          "type": "string"
+        },
+        "CellPhoneNumber": {
+          "type": "string"
+        },
+        "VisaExpirationDate": {
+          "type": "string"
+        },
+        "VisaIssueDate": {
+          "type": "string"
+        },
+        "ECFMGExpirationDate": {
+          "type": "string"
+        },
+        "WorkPermitStatus": {
+          "type": "string"
+        },
+        "SpouseMiddleName": {
+          "type": "string"
+        },
+        "StateResidenceDate": {
+          "type": "string"
+        },
+        "AffiliatedFlag": {
+          "type": "string"
+        },
+        "DelegatedFlag": {
+          "type": "string"
+        },
+        "NIDCountry": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "CountryName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "CountryName"
+          ]
+        },
+        "ProviderType": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "ProviderTypeAbbreviation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ProviderTypeAbbreviation"
+          ]
+        },
+        "OtherName": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "LastName": {
+              "type": "string"
+            },
+            "FirstName": {
+              "type": "string"
+            },
+            "MiddleName": {
+              "type": "string"
+            },
+            "Suffix": {
+              "type": "string"
+            },
+            "StartDate": {
+              "type": "string"
+            },
+            "EndDate": {
+              "type": "string"
+            },
+            "OtherNameExplanation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@ID",
+            "LastName",
+            "FirstName",
+            "MiddleName",
+            "Suffix",
+            "StartDate",
+            "EndDate",
+            "OtherNameExplanation"
+          ]
+        },
+        "Gender": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "GenderDescription": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "GenderDescription"
+          ]
+        },
+        "Language": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "Language": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "LanguageName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "LanguageName"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "Language"
+            ]
+          }
+        },
+        "ProviderIdentifier": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "IdentifierValue": {
+              "type": "string"
+            },
+            "IdentifierType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "IdentifierTypeDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "IdentifierTypeDescription"
+              ]
+            }
+          },
+          "required": [
+            "@ID",
+            "IdentifierValue",
+            "IdentifierType"
+          ]
+        },
+        "ProviderLicense": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "LicenseNumber": {
+                "type": "string"
+              },
+              "State": {
+                "type": "string"
+              },
+              "CurrentlyPracticingFlag": {
+                "type": "string",
+                "enum": [
+                  "1",
+                  "0"
+                ]
+              },
+              "ExpirationDate": {
+                "type": "string"
+              },
+              "LicenseType": {
+                "type": "string",
+                "enum": [
+                  "MD",
+                  "DDS"
+                ]
+              },
+              "IssueDate": {
+                "type": "string"
+              },
+              "LicenseUnlimitedFlag": {
+                "type": "string",
+                "enum": [
+                  "1"
+                ]
+              },
+              "LicenseStatus": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "LicenseStatusDescription": {
+                    "type": "string",
+                    "enum": [
+                      "Active"
+                    ]
+                  }
+                },
+                "required": [
+                  "LicenseStatusDescription"
+                ]
+              },
+              "SponsorName": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@ID",
+              "LicenseNumber",
+              "State",
+              "CurrentlyPracticingFlag",
+              "ExpirationDate",
+              "LicenseType",
+              "IssueDate",
+              "LicenseUnlimitedFlag",
+              "LicenseStatus"
+            ]
+          }
+        },
+        "ProviderDEA": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "DEANumber": {
+              "type": "string"
+            },
+            "State": {
+              "type": "string"
+            },
+            "ExpirationDate": {
+              "type": "string"
+            },
+            "IssueDate": {
+              "type": "string"
+            },
+            "DEALicenseLimitationFlag": {
+              "type": "string"
+            },
+            "DEALicenseLimitationExplanation": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@ID",
+            "DEANumber",
+            "State",
+            "ExpirationDate",
+            "IssueDate",
+            "DEALicenseLimitationFlag",
+            "DEALicenseLimitationExplanation"
+          ]
+        },
+        "ProviderCDS": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "CDSNumber": {
+              "type": "string"
+            },
+            "State": {
+              "type": "string"
+            },
+            "ExpirationDate": {
+              "type": "string"
+            },
+            "IssueDate": {
+              "type": "string"
+            },
+            "CurrentlyPracticingFlag": {
+              "type": "string"
+            },
+            "CDSLimitationExplanation": {
+              "type": "string"
+            },
+            "CDSStatus": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@ID",
+            "CDSNumber",
+            "State",
+            "ExpirationDate",
+            "IssueDate",
+            "CurrentlyPracticingFlag",
+            "CDSLimitationExplanation",
+            "CDSStatus"
+          ]
+        },
+        "ProviderMedicare": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "MedicareNumber": {
+              "type": "string"
+            },
+            "State": {
+              "type": "string"
+            },
+            "VoluntarilyOptedOutMedicareFlag": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@ID",
+            "MedicareNumber",
+            "State",
+            "VoluntarilyOptedOutMedicareFlag"
+          ]
+        },
+        "ProviderMedicaid": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "MedicaidNumber": {
+              "type": "string"
+            },
+            "State": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@ID",
+            "MedicaidNumber",
+            "State"
+          ]
+        },
+        "Education": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "InstitutionName": {
+                "type": "string"
+              },
+              "Address": {
+                "type": "string"
+              },
+              "Address2": {
+                "type": "string"
+              },
+              "City": {
+                "type": "string"
+              },
+              "Province": {
+                "type": "string"
+              },
+              "State": {
+                "type": "string"
+              },
+              "PostalCode": {
+                "type": "string"
+              },
+              "StartDate": {
+                "type": "string"
+              },
+              "HospitalDepartmentName": {
+                "type": "string"
+              },
+              "ProgramCompletedFlag": {
+                "type": "string",
+                "enum": [
+                  "0",
+                  "1"
+                ]
+              },
+              "ProgramDirector": {
+                "type": "string"
+              },
+              "CertificateAwarded": {
+                "type": "string"
+              },
+              "IncompleteExplanation": {
+                "type": "string"
+              },
+              "PhoneNumber": {
+                "type": "string"
+              },
+              "AdditionalTrainingDescription": {
+                "type": "string"
+              },
+              "EducationTypeName": {
+                "type": "string"
+              },
+              "Country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "CountryName": {
+                    "type": "string",
+                    "enum": [
+                      "United States"
+                    ]
+                  }
+                },
+                "required": [
+                  "CountryName"
+                ]
+              },
+              "Specialty": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "SpecialtyName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "SpecialtyName"
+                ]
+              },
+              "InstitutionType": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "InstitutionTypeDescription": {
+                    "type": "string",
+                    "enum": [
+                      "Hospital",
+                      "Allied/General School"
+                    ]
+                  }
+                },
+                "required": [
+                  "InstitutionTypeDescription"
+                ]
+              },
+              "EmailAddress": {
+                "type": "string",
+                "enum": [
+                  "hdec@hmail.com"
+                ]
+              },
+              "CompletionDate": {
+                "type": "string"
+              },
+              "DisciplinaryActionFlag": {
+                "type": "string",
+                "enum": [
+                  "0"
+                ]
+              },
+              "ProgramType": {
+                "type": "string"
+              },
+              "TeachingPosition": {
+                "type": "string"
+              },
+              "EndDate": {
+                "type": "string"
+              },
+              "FaxNumber": {
+                "type": "string"
+              },
+              "Degree": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "DegreeAbbreviation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "DegreeAbbreviation"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "InstitutionName",
+              "Address",
+              "City",
+              "State",
+              "PostalCode",
+              "EducationTypeName",
+              "Country",
+              "InstitutionType"
+            ]
+          }
+        },
+        "Degree": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "Degree": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "DegreeAbbreviation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "DegreeAbbreviation"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "Degree"
+            ]
+          }
+        },
+        "Specialty": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "BoardCertifiedFlag": {
+                "type": "string"
+              },
+              "CertificationDate": {
+                "type": "string"
+              },
+              "RecertificationDate": {
+                "type": "string"
+              },
+              "ExpirationDate": {
+                "type": "string"
+              },
+              "HMOFlag": {
+                "type": "string"
+              },
+              "PPOFlag": {
+                "type": "string"
+              },
+              "POSFlag": {
+                "type": "string"
+              },
+              "ListInDirectoryFlag": {
+                "type": "string"
+              },
+              "SpecialtyBoardName": {
+                "type": "string"
+              },
+              "FailedBoardExamFlag": {
+                "type": "string"
+              },
+              "ApplyCertificationFlag": {
+                "type": "string"
+              },
+              "IntendApplyCertificationFlag": {
+                "type": "string"
+              },
+              "ExamAcceptedFlag": {
+                "type": "string"
+              },
+              "CertificationNumber": {
+                "type": "string"
+              },
+              "SpecialtyPercent": {
+                "type": "string"
+              },
+              "SpecialtyBoardAddress": {
+                "type": "string"
+              },
+              "SpecialtyBoardAddress2": {
+                "type": "string"
+              },
+              "SpecialtyBoardCity": {
+                "type": "string"
+              },
+              "SpecialtyBoardState": {
+                "type": "string"
+              },
+              "SpecialtyBoardPostalCode": {
+                "type": "string"
+              },
+              "SpecialtyType": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "SpecialtyTypeDescription": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "SpecialtyTypeDescription"
+                ]
+              },
+              "Specialty": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "SpecialtyName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "SpecialtyName"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "SpecialtyType"
+            ]
+          }
+        },
+        "OtherInterest": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "OtherInterestDescription": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@ID",
+            "OtherInterestDescription"
+          ]
+        },
+        "Associate": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "AssociateFirstName": {
+              "type": "string"
+            },
+            "AssociateLastName": {
+              "type": "string"
+            },
+            "AssociateMiddleInitial": {
+              "type": "string"
+            },
+            "PhoneNumber": {
+              "type": "string"
+            },
+            "EmailAddress": {
+              "type": "string"
+            },
+            "AssociateType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "AssociateTypeDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "AssociateTypeDescription"
+              ]
+            }
+          },
+          "required": [
+            "@ID",
+            "AssociateFirstName",
+            "AssociateLastName",
+            "AssociateMiddleInitial",
+            "PhoneNumber",
+            "EmailAddress",
+            "AssociateType"
+          ]
+        },
+        "Practice": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "PracticeName": {
+              "type": "string"
+            },
+            "Address": {
+              "type": "string"
+            },
+            "City": {
+              "type": "string"
+            },
+            "Zip": {
+              "type": "string"
+            },
+            "ExtZip": {
+              "type": "string"
+            },
+            "EmailAddress": {
+              "type": "string"
+            },
+            "CorrespondenceFlag": {
+              "type": "string"
+            },
+            "OtherAssociatesFlag": {
+              "type": "string"
+            },
+            "CurrentlyPracticingFlag": {
+              "type": "string"
+            },
+            "Coverage24x7Flag": {
+              "type": "string"
+            },
+            "PracticeLimitationFlag": {
+              "type": "string"
+            },
+            "ADAApprovedFlag": {
+              "type": "string"
+            },
+            "MinorityBusinessFlag": {
+              "type": "string"
+            },
+            "InterpreterAvailableFlag": {
+              "type": "string"
+            },
+            "ListInDirectoryFlag": {
+              "type": "string"
+            },
+            "W9PracticeName": {
+              "type": "string"
+            },
+            "PracticeTypeDescription": {
+              "type": "string"
+            },
+            "Accessibility": {
+              "type": "array",
+              "additionalItems": true,
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "@ID": {
+                    "type": "string"
+                  },
+                  "AccessibilityFlag": {
+                    "type": "string",
+                    "enum": [
+                      "0",
+                      "1"
+                    ]
+                  },
+                  "Accessibility": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "AccessibilityDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "AccessibilityDescription"
+                    ]
+                  }
+                },
+                "required": [
+                  "@ID",
+                  "AccessibilityFlag",
+                  "Accessibility"
+                ]
+              }
+            },
+            "Associate": {
+              "type": "array",
+              "additionalItems": true,
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "@ID": {
+                    "type": "string"
+                  },
+                  "AssociateFirstName": {
+                    "type": "string"
+                  },
+                  "AssociateLastName": {
+                    "type": "string"
+                  },
+                  "EmailAddress": {
+                    "type": "string",
+                    "enum": [
+                      "hdec@hmail.com"
+                    ]
+                  },
+                  "TaxIDName": {
+                    "type": "string",
+                    "enum": [
+                      "Group"
+                    ]
+                  },
+                  "AssociateType": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "AssociateTypeDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "AssociateTypeDescription"
+                    ]
+                  }
+                },
+                "required": [
+                  "@ID",
+                  "EmailAddress",
+                  "TaxIDName",
+                  "AssociateType"
+                ]
+              }
+            },
+            "Certification": {
+              "type": "array",
+              "additionalItems": true,
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "@ID": {
+                    "type": "string"
+                  },
+                  "CertificationFlag": {
+                    "type": "string",
+                    "enum": [
+                      "0"
+                    ]
+                  },
+                  "CertificationDescription": {
+                    "type": "string"
+                  },
+                  "#text": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@ID"
+                ]
+              }
+            },
+            "Limitation": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "@ID": {
+                  "type": "string"
+                },
+                "AgeLimitationFlag": {
+                  "type": "string"
+                },
+                "GenderLimitation": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "GenderLimitationDescription": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "GenderLimitationDescription"
+                  ]
+                }
+              },
+              "required": [
+                "@ID",
+                "AgeLimitationFlag",
+                "GenderLimitation"
+              ]
+            },
+            "Patient": {
+              "type": "array",
+              "additionalItems": true,
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "@ID": {
+                    "type": "string"
+                  },
+                  "PatientFlag": {
+                    "type": "string",
+                    "enum": [
+                      "0"
+                    ]
+                  },
+                  "PatientType": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "PatientTypeDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "PatientTypeDescription"
+                    ]
+                  }
+                },
+                "required": [
+                  "@ID",
+                  "PatientFlag",
+                  "PatientType"
+                ]
+              }
+            },
+            "PhoneCoverage": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "@ID": {
+                  "type": "string"
+                },
+                "PhoneCoverageFlag": {
+                  "type": "string"
+                },
+                "PhoneCoverageTypeDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@ID",
+                "PhoneCoverageFlag",
+                "PhoneCoverageTypeDescription"
+              ]
+            },
+            "AddressType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "AddressTypeDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "AddressTypeDescription"
+              ]
+            },
+            "Tax": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "@ID": {
+                  "type": "string"
+                },
+                "GroupName": {
+                  "type": "string"
+                },
+                "TaxID": {
+                  "type": "string"
+                },
+                "PrimaryFlag": {
+                  "type": "string"
+                },
+                "GroupNumber": {
+                  "type": "string"
+                },
+                "TaxType": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "TaxTypeDescription": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "TaxTypeDescription"
+                  ]
+                }
+              },
+              "required": [
+                "@ID",
+                "GroupName",
+                "TaxID",
+                "PrimaryFlag",
+                "GroupNumber",
+                "TaxType"
+              ]
+            },
+            "PracticeSpecialty": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "@ID": {
+                  "type": "string"
+                },
+                "PrimaryCareFlag": {
+                  "type": "string"
+                },
+                "SpecialtyCareFlag": {
+                  "type": "string"
+                },
+                "Specialty": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "SpecialtyName": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "SpecialtyName"
+                  ]
+                }
+              },
+              "required": [
+                "@ID",
+                "PrimaryCareFlag",
+                "SpecialtyCareFlag",
+                "Specialty"
+              ]
+            },
+            "PracticeAddress": {
+              "type": "array",
+              "additionalItems": true,
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "@ID": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string",
+                    "enum": [
+                      "s1"
+                    ]
+                  },
+                  "City": {
+                    "type": "string",
+                    "enum": [
+                      "dffffffffffff"
+                    ]
+                  },
+                  "PostalCode": {
+                    "type": "string",
+                    "enum": [
+                      "111111111"
+                    ]
+                  },
+                  "EmailAddress": {
+                    "type": "string"
+                  },
+                  "Country": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "CountryName": {
+                        "type": "string",
+                        "enum": [
+                          "American Samoa"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "CountryName"
+                    ]
+                  },
+                  "AddressType": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "AddressTypeDescription": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "AddressTypeDescription"
+                    ]
+                  }
+                },
+                "required": [
+                  "@ID",
+                  "Address",
+                  "City",
+                  "PostalCode",
+                  "Country",
+                  "AddressType"
+                ]
+              }
+            }
+          },
+          "required": [
+            "@ID",
+            "PracticeName",
+            "Address",
+            "City",
+            "Zip",
+            "ExtZip",
+            "EmailAddress",
+            "CorrespondenceFlag",
+            "OtherAssociatesFlag",
+            "CurrentlyPracticingFlag",
+            "Coverage24x7Flag",
+            "PracticeLimitationFlag",
+            "ADAApprovedFlag",
+            "MinorityBusinessFlag",
+            "InterpreterAvailableFlag",
+            "ListInDirectoryFlag",
+            "W9PracticeName",
+            "PracticeTypeDescription",
+            "Accessibility",
+            "Associate",
+            "Certification",
+            "Limitation",
+            "Patient",
+            "PhoneCoverage",
+            "AddressType",
+            "Tax",
+            "PracticeSpecialty",
+            "PracticeAddress"
+          ]
+        },
+        "Hospital": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "HospitalAffiliationType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "HospitalAffiliationTypeDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "HospitalAffiliationTypeDescription"
+              ]
+            },
+            "Associate": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "@ID": {
+                  "type": "string"
+                },
+                "AssociateFirstName": {
+                  "type": "string"
+                },
+                "AssociateLastName": {
+                  "type": "string"
+                },
+                "AssociateMiddleInitial": {
+                  "type": "string"
+                },
+                "PhoneNumber": {
+                  "type": "string"
+                },
+                "FaxNumber": {
+                  "type": "string"
+                },
+                "EmailAddress": {
+                  "type": "string"
+                },
+                "AssociateType": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "properties": {
+                    "AssociateTypeDescription": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "AssociateTypeDescription"
+                  ]
+                }
+              },
+              "required": [
+                "@ID",
+                "AssociateFirstName",
+                "AssociateLastName",
+                "AssociateMiddleInitial",
+                "PhoneNumber",
+                "FaxNumber",
+                "EmailAddress",
+                "AssociateType"
+              ]
+            }
+          },
+          "required": [
+            "@ID",
+            "HospitalAffiliationType",
+            "Associate"
+          ]
+        },
+        "Insurance": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "InsuranceCarrierName": {
+              "type": "string"
+            },
+            "OriginalStartDate": {
+              "type": "string"
+            },
+            "StartDate": {
+              "type": "string"
+            },
+            "EndDate": {
+              "type": "string"
+            },
+            "SelfInsuredFlag": {
+              "type": "string"
+            },
+            "Address": {
+              "type": "string"
+            },
+            "City": {
+              "type": "string"
+            },
+            "State": {
+              "type": "string"
+            },
+            "PostalCode": {
+              "type": "string"
+            },
+            "PhoneNumber": {
+              "type": "string"
+            },
+            "PolicyNumber": {
+              "type": "string"
+            },
+            "IndividualCoverageFlag": {
+              "type": "string"
+            },
+            "CoverageAmountOccurrence": {
+              "type": "string"
+            },
+            "CoverageAmountAggregate": {
+              "type": "string"
+            },
+            "RetroactiveDate": {
+              "type": "string"
+            },
+            "TailNoseCoverageFlag": {
+              "type": "string"
+            },
+            "TimeWithCarrier": {
+              "type": "string"
+            },
+            "CoverageLimitExceededFlag": {
+              "type": "string"
+            },
+            "UnlimitedCoverageFlag": {
+              "type": "string"
+            },
+            "FaxNumber": {
+              "type": "string"
+            },
+            "PhoneExtension": {
+              "type": "string"
+            },
+            "InsuranceType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "InsuranceTypeDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "InsuranceTypeDescription"
+              ]
+            },
+            "InsuranceCoverageType": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "InsuranceCoverageTypeDescription": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "InsuranceCoverageTypeDescription"
+              ]
+            }
+          },
+          "required": [
+            "@ID",
+            "InsuranceCarrierName",
+            "OriginalStartDate",
+            "StartDate",
+            "EndDate",
+            "SelfInsuredFlag",
+            "Address",
+            "City",
+            "State",
+            "PostalCode",
+            "PhoneNumber",
+            "PolicyNumber",
+            "IndividualCoverageFlag",
+            "CoverageAmountOccurrence",
+            "CoverageAmountAggregate",
+            "RetroactiveDate",
+            "TailNoseCoverageFlag",
+            "TimeWithCarrier",
+            "CoverageLimitExceededFlag",
+            "UnlimitedCoverageFlag",
+            "FaxNumber",
+            "PhoneExtension",
+            "InsuranceType",
+            "InsuranceCoverageType"
+          ]
+        },
+        "WorkHistory": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "EmployerName": {
+                "type": "string"
+              },
+              "StartDate": {
+                "type": "string",
+                "enum": [
+                  "2015-02-01T00:00:00",
+                  "2014-07-01T00:00:00",
+                  "2014-01-01T00:00:00",
+                  "2013-07-01T00:00:00"
+                ]
+              },
+              "Address": {
+                "type": "string"
+              },
+              "City": {
+                "type": "string"
+              },
+              "State": {
+                "type": "string"
+              },
+              "Province": {
+                "type": "string"
+              },
+              "PostalCode": {
+                "type": "string"
+              },
+              "PhoneNumber": {
+                "type": "string"
+              },
+              "CurrentEmployerFlag": {
+                "type": "string",
+                "enum": [
+                  "1",
+                  "0"
+                ]
+              },
+              "OperatingStatusDescription": {
+                "type": "string"
+              },
+              "PhoneExtension": {
+                "type": "string"
+              },
+              "StatusDescription": {
+                "type": "string"
+              },
+              "Country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "CountryName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "CountryName"
+                ]
+              },
+              "WorkHistoryType": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "WorkHistoryTypeDescription": {
+                    "type": "string",
+                    "enum": [
+                      "Current",
+                      "Previous"
+                    ]
+                  }
+                },
+                "required": [
+                  "WorkHistoryTypeDescription"
+                ]
+              },
+              "EndDate": {
+                "type": "string"
+              },
+              "ExitExplanation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@ID",
+              "EmployerName",
+              "StartDate",
+              "Address",
+              "City",
+              "CurrentEmployerFlag",
+              "Country",
+              "WorkHistoryType"
+            ]
+          }
+        },
+        "TimeGap": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "StartDate": {
+                "type": "string"
+              },
+              "EndDate": {
+                "type": "string"
+              },
+              "GapExplanation": {
+                "type": "string"
+              },
+              "GapDescription": {
+                "type": "string",
+                "enum": [
+                  "Work History"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "StartDate",
+              "EndDate",
+              "GapExplanation",
+              "GapDescription"
+            ]
+          }
+        },
+        "Reference": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "FirstName": {
+                "type": "string"
+              },
+              "LastName": {
+                "type": "string"
+              },
+              "Address": {
+                "type": "string"
+              },
+              "Address2": {
+                "type": "string"
+              },
+              "City": {
+                "type": "string"
+              },
+              "State": {
+                "type": "string"
+              },
+              "Province": {
+                "type": "string"
+              },
+              "PostalCode": {
+                "type": "string"
+              },
+              "PhoneNumber": {
+                "type": "string"
+              },
+              "FaxNumber": {
+                "type": "string"
+              },
+              "EmailAddress": {
+                "type": "string"
+              },
+              "ReferenceType": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "ProviderTypeAbbreviation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ProviderTypeAbbreviation"
+                ]
+              },
+              "Country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "CountryName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "CountryName"
+                ]
+              },
+              "StartDate": {
+                "type": "string"
+              },
+              "EndDate": {
+                "type": "string"
+              },
+              "MiddleName": {
+                "type": "string"
+              },
+              "Specialty": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "SpecialtyName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "SpecialtyName"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "Address",
+              "Address2",
+              "City",
+              "PhoneNumber",
+              "ReferenceType",
+              "Country"
+            ]
+          }
+        },
+        "Disclosure": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "DisclosureAnswerFlag": {
+                "type": "string",
+                "enum": [
+                  "0",
+                  "1"
+                ]
+              },
+              "DisclosureQuestion": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "DisclosureSummary": {
+                    "type": "string",
+                    "enum": [
+                      "Suspended License or License Problems",
+                      "Investigated by Professional Organization",
+                      "Suspended DEA or CDS",
+                      "Disciplined Medicare or Medicaid",
+                      "Been reported to NPDB",
+                      "Convicted of Felony or Misdemeanor or Under Investigation",
+                      "Professional Liability Suit Pending",
+                      "Canceled Professional Liability Coverage",
+                      "Practiced Without Liability Coverage",
+                      "Medical Condition Limiting Ability to Practice",
+                      "Privilege Disciplinary Actions Pending or Past",
+                      "Has your license to practice medicine been revoked or denied",
+                      "Has your staff membership been revoked or denied",
+                      "Has your admitting privileges been revoked or denied",
+                      "Have you relinquished medical staff membership",
+                      "Has your membership or affiliation with any HMO been revoked or denied",
+                      "Have you relinquished membership or affiliation with any HMO",
+                      "Has your state or local professional society membership ever been revoked",
+                      "Has your Medicare, Medicaid, or Tricare status ever been sanctioned",
+                      "Has a letter of concern or reprimand ever been issued to you",
+                      "Have you ever been denied medical liability insurance",
+                      "Have you ever been named in a professional negligence/misconduct complaint",
+                      "Malpractice suit resulted in judgment, etc., or is still pending",
+                      "Does your liability insurance prevent you from performing any procedures",
+                      "Has your specialty board certification ever been revoked or denied",
+                      "Has your DEA authorization ever been revoked or denied",
+                      "Have you ever been convicted of a crime besides a minor traffic violation",
+                      "Have you ever or are you now addicted to a controlled substance or alcohol",
+                      "Do you currently use illegal drugs",
+                      "Do you have any condition that may affect your ability to practice",
+                      "Would you require accomodations to perform your duties",
+                      "State Licensing Board Reprimand or Fine",
+                      "Suspended Clinical Privileges",
+                      "Voluntarily limited privileges",
+                      "Terminated for cause by MCO",
+                      "Disciplined during medical training",
+                      "Terminated during medical training",
+                      "Revoked board certifications",
+                      "Surrendered board certifications",
+                      "Subject of Investigation",
+                      "Sanctions from Regulatory Agency",
+                      "Sexual Harassment",
+                      "Sanctioned by Military Facility",
+                      "High-risk for Professional Liability Coverage",
+                      "Had any Malpractice Actions",
+                      "Convicted of Felony",
+                      "Convicted of Sexual Offense",
+                      "Court-martialed",
+                      "Use Illegal Drugs",
+                      "Use Chemical Substances",
+                      "A Risk to Safety of Patients",
+                      "Able to perform without Accommodations",
+                      "Restricted by Federal or State Health Insurance Program",
+                      "Resigned Before Disciplinary Action",
+                      "Withdrew an Application for Privileges",
+                      "Subject of Report to Data Bank or Licensing Entity",
+                      "Charged with Criminal Violation",
+                      "Physical or Mental Conditions Affecting Ability to Practice",
+                      "Unable to perform without Accommodations",
+                      "Denied License to Practice Any Profession",
+                      "Denied Other Professional Registration or Certification",
+                      "Denied Specialty or Subspecialty Board Certification",
+                      "Denied Membership on Any Hospital Medical Staff",
+                      "Denied Clinical Privileges at Any Facility",
+                      "Denied Medicare, Medicaid, FDA",
+                      "Denied Professional Society Membership or Fellowship",
+                      "Denied Participation/membership in an HMO",
+                      "Denied Academic Appointment",
+                      "Denied Authority to Prescribe Controlled Substances",
+                      "Subject to Review by Ethics Committee",
+                      "Committed Unprofessional Conduct Defined by State Provisions",
+                      "Subject of Reports of Disciplinary Entity",
+                      "Anticipate Charges",
+                      "Current Government Investigation",
+                      "Presently Use Drugs Illegally",
+                      "Have Condition Affecting Ability to Practice",
+                      "Unable to Any Perform Services",
+                      "Claims of Professional Negligence",
+                      "Paid Money to Settle Claim",
+                      "Asserted Claims in Existence",
+                      "Denied Professional Liability Coverage",
+                      "Any Privileges Requested not Covered",
+                      "Investigated by Professional Licensing Body",
+                      "Investigated by a Health Care Organization",
+                      "Convicted of Criminal Offense",
+                      "Academic Appointment Problems",
+                      "Failed to Renew Privileges",
+                      "Privileges surrendered or other privilege problems",
+                      "Privileges Denied or Limited due to Disciplinary Action",
+                      "Pending Civil Actions",
+                      "Unprofessional Conduct Charges",
+                      "Fraud Charges",
+                      "Peer Review Citations",
+                      "Do you illegally use drugs",
+                      "Illegal drugs last two years",
+                      "Exclusions from Professional Liability Coverage"
+                    ]
+                  }
+                },
+                "required": [
+                  "DisclosureSummary"
+                ]
+              },
+              "DisclosureExplanation": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@ID",
+              "DisclosureAnswerFlag"
+            ]
+          }
+        },
+        "Malpractice": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "InsuranceCarrierName": {
+                "type": "string"
+              },
+              "OccurrenceDate": {
+                "type": "string"
+              },
+              "ClaimDate": {
+                "type": "string"
+              },
+              "PhoneNumber": {
+                "type": "string",
+                "enum": [
+                  "4343454353",
+                  "8888888888",
+                  "4343432432",
+                  "9999999999",
+                  "8989898989"
+                ]
+              },
+              "PolicyNumber": {
+                "type": "string"
+              },
+              "AllegationDescription": {
+                "type": "string"
+              },
+              "PrimaryDefendantFlag": {
+                "type": "string",
+                "enum": [
+                  "1",
+                  "0"
+                ]
+              },
+              "NumberOtherCodefendant": {
+                "type": "string"
+              },
+              "CaseInvolvement": {
+                "type": "string"
+              },
+              "PatientInjuryDescription": {
+                "type": "string"
+              },
+              "NPDBCaseFlag": {
+                "type": "string",
+                "enum": [
+                  "0",
+                  "1"
+                ]
+              },
+              "PatientOutcome": {
+                "type": "string"
+              },
+              "ProviderStatus": {
+                "type": "string",
+                "enum": [
+                  "Co-Defendant",
+                  "Other",
+                  "Primary Defendant"
+                ]
+              },
+              "PatientAge": {
+                "type": "string"
+              },
+              "MalpracticeResolution": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "MalpracticeResolutionMethod": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "MalpracticeResolutionMethod"
+                ]
+              },
+              "DisclosureQuestion": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "DisclosureSummary": {
+                    "type": "string",
+                    "enum": [
+                      "Pending Malpractice Actions",
+                      "Any Privileges Requested not Covered",
+                      "Suits or claims alleging malpractice",
+                      "Had any Malpractice Actions",
+                      "Professional Liability Judgment",
+                      "Liability Claim Settlement Paid",
+                      "Professional Liability Suit Pending",
+                      "Have you ever been named in a professional negligence/misconduct complaint",
+                      "Claims of Professional Negligence",
+                      "Third Party Sued for Own Actions",
+                      "Professional liability or arbitration proceedings currently pending"
+                    ]
+                  }
+                },
+                "required": [
+                  "DisclosureSummary"
+                ]
+              },
+              "Address": {
+                "type": "string"
+              },
+              "Address2": {
+                "type": "string"
+              },
+              "City": {
+                "type": "string"
+              },
+              "Zip": {
+                "type": "string"
+              },
+              "PatientDiedFlag": {
+                "type": "string",
+                "enum": [
+                  "1",
+                  "0"
+                ]
+              },
+              "ClaimStatus": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "@ID": {
+                    "type": "string",
+                    "enum": [
+                      "1000"
+                    ]
+                  },
+                  "SettlementAmount": {
+                    "type": "string"
+                  },
+                  "ClaimStatus": {
+                    "type": "string",
+                    "enum": [
+                      "Closed",
+                      "Open",
+                      "asfasdf",
+                      "Licensure-25"
+                    ]
+                  },
+                  "DefenseAttorneyAddress": {
+                    "type": "string"
+                  },
+                  "DefenseAttorneyAddress2": {
+                    "type": "string"
+                  },
+                  "DefenseAttorneyCity": {
+                    "type": "string"
+                  },
+                  "DefenseAttorneyState": {
+                    "type": "string"
+                  },
+                  "DefenseAttorneyPostalCode": {
+                    "type": "string"
+                  },
+                  "DefenseAttorneyProvince": {
+                    "type": "string"
+                  },
+                  "DefenseAttorneyCountry": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "CountryName": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "CountryName"
+                    ]
+                  },
+                  "SettlementAmountPaid": {
+                    "type": "string"
+                  },
+                  "DefenseAttorneyPhoneNumber": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@ID"
+                ]
+              },
+              "CaseClosedDate": {
+                "type": "string"
+              },
+              "IncidentLocation": {
+                "type": "string"
+              },
+              "LicenseNumber": {
+                "type": "string"
+              },
+              "CaseNumber": {
+                "type": "string"
+              },
+              "PlaintiffName": {
+                "type": "string"
+              },
+              "OtherDefendantNames": {
+                "type": "string"
+              },
+              "OtherCaseDescription": {
+                "type": "string"
+              },
+              "Province": {
+                "type": "string"
+              },
+              "Country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "CountryName": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "CountryName"
+                ]
+              },
+              "CaseCity": {
+                "type": "string",
+                "enum": [
+                  "Disclosure Information-"
+                ]
+              },
+              "CarrierFlag": {
+                "type": "string",
+                "enum": [
+                  "0"
+                ]
+              },
+              "ContactName": {
+                "type": "string",
+                "enum": [
+                  "Disclosure Information-"
+                ]
+              },
+              "ClaimNumber": {
+                "type": "string"
+              },
+              "PatientGender": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "GenderDescription": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "GenderDescription"
+                ]
+              },
+              "LegalCounselFlag": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@ID",
+              "OccurrenceDate",
+              "DisclosureQuestion"
+            ]
+          }
+        },
+        "GraduateType": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "GraduateTypeDescription": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "GraduateTypeDescription"
+          ]
+        },
+        "ProviderAddress": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "Address": {
+                "type": "string",
+                "enum": [
+                  "Strt11"
+                ]
+              },
+              "Address2": {
+                "type": "string",
+                "enum": [
+                  "Strt2"
+                ]
+              },
+              "City": {
+                "type": "string",
+                "enum": [
+                  "city"
+                ]
+              },
+              "State": {
+                "type": "string",
+                "enum": [
+                  "NC"
+                ]
+              },
+              "PostalCode": {
+                "type": "string",
+                "enum": [
+                  "12333333333"
+                ]
+              },
+              "PhoneNumber": {
+                "type": "string",
+                "enum": [
+                  "9851515151"
+                ]
+              },
+              "FaxNumber": {
+                "type": "string",
+                "enum": [
+                  "4548405151"
+                ]
+              },
+              "EmailAddress": {
+                "type": "string",
+                "enum": [
+                  "hdec@hmail.com"
+                ]
+              },
+              "County": {
+                "type": "string",
+                "enum": [
+                  "Alexander County"
+                ]
+              },
+              "UnlistedFlag": {
+                "type": "string"
+              },
+              "AddressType": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "AddressTypeDescription": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "AddressTypeDescription"
+                ]
+              },
+              "Country": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "CountryName": {
+                    "type": "string",
+                    "enum": [
+                      "United States"
+                    ]
+                  }
+                },
+                "required": [
+                  "CountryName"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "Address",
+              "Address2",
+              "City",
+              "State",
+              "PostalCode",
+              "PhoneNumber",
+              "FaxNumber",
+              "EmailAddress",
+              "County",
+              "AddressType",
+              "Country"
+            ]
+          }
+        },
+        "ProviderOther": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "ProviderAnswerFlag": {
+                "type": "string",
+                "enum": [
+                  "0",
+                  "1"
+                ]
+              },
+              "ProviderAnswerText": {
+                "type": "string"
+              },
+              "OtherQuestion": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "OtherQuestionSummary": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "OtherQuestionSummary"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "ProviderAnswerFlag",
+              "ProviderAnswerText"
+            ]
+          }
+        },
+        "ProviderCertification": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "CertificationFlag": {
+                "type": "string",
+                "enum": [
+                  "1",
+                  "0"
+                ]
+              },
+              "ExpirationDate": {
+                "type": "string"
+              },
+              "ClassificationDescription": {
+                "type": "string"
+              },
+              "CertificationNumber": {
+                "type": "string"
+              },
+              "State": {
+                "type": "string"
+              },
+              "ObtainedDate": {
+                "type": "string"
+              },
+              "CertificationDescription": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@ID",
+              "CertificationFlag",
+              "CertificationDescription"
+            ]
+          }
+        },
+        "CitizenshipCountry": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "CountryName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "CountryName"
+          ]
+        },
+        "BirthCountry": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "CountryName": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "CountryName"
+          ]
+        },
+        "MaritalStatus": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "MaritalStatusDescription": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "MaritalStatusDescription"
+          ]
+        },
+        "Military": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "CurrentPrimaryBaseName": {
+                "type": "string"
+              },
+              "CurrentDivision": {
+                "type": "string"
+              },
+              "CurrentAddress": {
+                "type": "string"
+              },
+              "CurrentAddress2": {
+                "type": "string"
+              },
+              "CurrentCity": {
+                "type": "string"
+              },
+              "CurrentState": {
+                "type": "string"
+              },
+              "CurrentZip": {
+                "type": "string"
+              },
+              "CurrentCountry": {
+                "type": "string"
+              },
+              "CurrentPhoneNumber": {
+                "type": "string"
+              },
+              "CurrentFaxNumber": {
+                "type": "string"
+              },
+              "CurrentAppointmentDate": {
+                "type": "string"
+              },
+              "CurrentMilitaryStatus": {
+                "type": "string"
+              },
+              "LastLocation": {
+                "type": "string"
+              },
+              "DischargeRank": {
+                "type": "string"
+              },
+              "Branch": {
+                "type": "string"
+              },
+              "StartDate": {
+                "type": "string"
+              },
+              "EndDate": {
+                "type": "string"
+              },
+              "HonorableDischargeFlag": {
+                "type": "string"
+              },
+              "DischargeExplanation": {
+                "type": "string"
+              },
+              "ReserveGuardFlag": {
+                "type": "string"
+              },
+              "CourtMartialFlag": {
+                "type": "string"
+              },
+              "CourtMartialExplanation": {
+                "type": "string"
+              },
+              "ActiveDuty": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@ID"
+            ]
+          }
+        },
+        "AdverseAction": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "OccurrenceDate": {
+                "type": "string"
+              },
+              "OccurrenceExplanation": {
+                "type": "string"
+              },
+              "ActionDate": {
+                "type": "string"
+              },
+              "ActionExplanation": {
+                "type": "string"
+              },
+              "DisclosureQuestion": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "DisclosureSummary": {
+                    "type": "string",
+                    "enum": [
+                      "Suspended License or License Problems"
+                    ]
+                  }
+                },
+                "required": [
+                  "DisclosureSummary"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "OccurrenceExplanation",
+              "DisclosureQuestion"
+            ]
+          }
+        },
+        "SubstanceAbuse": {
+          "type": "array",
+          "additionalItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "@ID": {
+                "type": "string"
+              },
+              "SubstanceDescription": {
+                "type": "string"
+              },
+              "Address": {
+                "type": "string"
+              },
+              "City": {
+                "type": "string"
+              },
+              "PostalCode": {
+                "type": "string"
+              },
+              "MonitorType": {
+                "type": "string",
+                "enum": [
+                  "by State Board Mandate"
+                ]
+              },
+              "DisclosureQuestion": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "DisclosureSummary": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "DisclosureSummary"
+                ]
+              }
+            },
+            "required": [
+              "@ID",
+              "SubstanceDescription",
+              "MonitorType",
+              "DisclosureQuestion"
+            ]
+          }
+        },
+        "OwnershipDisclosure": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "@ID": {
+              "type": "string"
+            },
+            "EntityType": {
+              "type": "string"
+            },
+            "EntityName": {
+              "type": "string"
+            },
+            "DoingBusinessAs": {
+              "type": "string"
+            },
+            "ProviderNumber": {
+              "type": "string"
+            },
+            "VendorNumber": {
+              "type": "string"
+            },
+            "Address": {
+              "type": "string"
+            },
+            "Address2": {
+              "type": "string"
+            },
+            "City": {
+              "type": "string"
+            },
+            "County": {
+              "type": "string"
+            },
+            "State": {
+              "type": "string"
+            },
+            "Zip": {
+              "type": "string"
+            },
+            "Telephone": {
+              "type": "string"
+            },
+            "OwnershipConvictionFlag": {
+              "type": "string"
+            },
+            "EmployeeConvictionFlag": {
+              "type": "string"
+            },
+            "FiscalIntermediaryEmploymentFlag": {
+              "type": "string"
+            },
+            "MedicareMedicaidFacilityOwnerFlag": {
+              "type": "string"
+            },
+            "OwnershipChangeWithinYearFlag": {
+              "type": "string"
+            },
+            "OwnershipChangeDate": {
+              "type": "string"
+            },
+            "AnticipateOwnershipChangeFlag": {
+              "type": "string"
+            },
+            "OwnershipChangeAnticipateDate": {
+              "type": "string"
+            },
+            "AnticipateBankruptcyFlag": {
+              "type": "string"
+            },
+            "ManagementCompanyOperatedLeasedFlag": {
+              "type": "string"
+            },
+            "FacilityOperationChangeDate": {
+              "type": "string"
+            },
+            "AdminDirectorChangeFlag": {
+              "type": "string"
+            },
+            "ChainAffiliatedFlag": {
+              "type": "string"
+            },
+            "AffiliatedName": {
+              "type": "string"
+            },
+            "BedCapacityIncreaseFlag": {
+              "type": "string"
+            },
+            "BedCapacityChangeYear": {
+              "type": "string"
+            },
+            "EntityOwnershipDetail": {
+              "type": "array",
+              "additionalItems": true,
+              "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "@ID": {
+                    "type": "string",
+                    "enum": [
+                      "1105"
+                    ]
+                  },
+                  "EntityOwnershipName": {
+                    "type": "string"
+                  },
+                  "EntityOwnershipEIN": {
+                    "type": "string"
+                  },
+                  "EntityOwnershipAddress": {
+                    "type": "string"
+                  },
+                  "EntityOwnershipAddress2": {
+                    "type": "string"
+                  },
+                  "EntityOwnershipCity": {
+                    "type": "string"
+                  },
+                  "EntityOwnershipZip": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@ID",
+                  "EntityOwnershipName"
+                ]
+              }
+            }
+          },
+          "required": [
+            "@ID",
+            "EntityType",
+            "EntityName",
+            "DoingBusinessAs",
+            "ProviderNumber",
+            "VendorNumber",
+            "Address",
+            "Address2",
+            "City",
+            "County",
+            "State",
+            "Zip",
+            "Telephone",
+            "OwnershipConvictionFlag",
+            "EmployeeConvictionFlag",
+            "FiscalIntermediaryEmploymentFlag",
+            "MedicareMedicaidFacilityOwnerFlag",
+            "OwnershipChangeWithinYearFlag",
+            "OwnershipChangeDate",
+            "AnticipateOwnershipChangeFlag",
+            "OwnershipChangeAnticipateDate",
+            "AnticipateBankruptcyFlag",
+            "ManagementCompanyOperatedLeasedFlag",
+            "FacilityOperationChangeDate",
+            "AdminDirectorChangeFlag",
+            "ChainAffiliatedFlag",
+            "AffiliatedName",
+            "BedCapacityIncreaseFlag",
+            "BedCapacityChangeYear",
+            "EntityOwnershipDetail"
+          ]
+        }
+      },
+      "required": [
+        "@xmlns:xsi",
+        "@xmlns:xsd",
+        "@ProviderID",
+        "@ProviderAttestID",
+        "@AttestDate",
+        "@ID",
+        "@xmlns",
+        "LastName",
+        "FirstName",
+        "MiddleName",
+        "Suffix",
+        "PrimaryPracticeState",
+        "OtherNameFlag",
+        "BirthDate",
+        "USEligibleFlag",
+        "SSN",
+        "NID",
+        "DEAFlag",
+        "CDSFlag",
+        "UPIN",
+        "UPINFlag",
+        "NPIFlag",
+        "NPI",
+        "MedicareProviderFlag",
+        "MedicaidProviderFlag",
+        "OtherGraduateEducationFlag",
+        "FellowshipTrainingFlag",
+        "TeachingAppointmentFlag",
+        "SecondarySpecialtyFlag",
+        "OtherSpecialtyFlag",
+        "HospitalPrivilegeFlag",
+        "HospitalAdmittingArrangements",
+        "WorkHistoryGapFlag",
+        "ActiveMilitaryFlag",
+        "CitizenshipStatus",
+        "VisaNumber",
+        "ECFMGFlag",
+        "ECFMGNumber",
+        "ECFMGIssueDate",
+        "HospitalBasedFlag",
+        "EmailAddress",
+        "VisaType",
+        "VisaStatus",
+        "BirthCity",
+        "BirthState",
+        "SpouseLastName",
+        "SpouseFirstName",
+        "EmergencyContactLastName",
+        "EmergencyContactFirstName",
+        "EmergencyContactMiddleName",
+        "EmergencyContactPhone",
+        "CellPhoneNumber",
+        "VisaExpirationDate",
+        "VisaIssueDate",
+        "ECFMGExpirationDate",
+        "WorkPermitStatus",
+        "SpouseMiddleName",
+        "StateResidenceDate",
+        "AffiliatedFlag",
+        "DelegatedFlag",
+        "NIDCountry",
+        "ProviderType",
+        "OtherName",
+        "Gender",
+        "Language",
+        "ProviderIdentifier",
+        "ProviderLicense",
+        "ProviderDEA",
+        "ProviderCDS",
+        "ProviderMedicare",
+        "ProviderMedicaid",
+        "Education",
+        "Degree",
+        "Specialty",
+        "OtherInterest",
+        "Associate",
+        "Practice",
+        "Hospital",
+        "Insurance",
+        "WorkHistory",
+        "TimeGap",
+        "Reference",
+        "Disclosure",
+        "Malpractice",
+        "GraduateType",
+        "ProviderAddress",
+        "ProviderOther",
+        "ProviderCertification",
+        "CitizenshipCountry",
+        "BirthCountry",
+        "MaritalStatus",
+        "Military",
+        "AdverseAction",
+        "SubstanceAbuse",
+        "OwnershipDisclosure"
+      ]
+    }
+  },
+  "required": [
+    "Provider"
+  ]
+}

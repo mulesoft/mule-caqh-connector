@@ -1,0 +1,23 @@
+{
+  "type": "array",
+  "items": 
+    {
+      "type": "object",
+      "properties": {
+        "organization_id": {
+          "type": "string"
+        },
+        "caqh_provider_id": {
+          "type": "string"
+        },
+        "po_provider_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "organization_id",
+        "caqh_provider_id",
+        "po_provider_id"
+      ]
+    }
+}

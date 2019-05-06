@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="get-provider-status-directAssureFlow" doc:id="416aee13-403a-4575-9222-63dc89b940f9" >
+		<http:listener doc:name="getProviderStatusDa" doc:id="38379e68-a90a-4887-9c1b-7e9070c388a5" config-ref="HTTP_Listener_config" path="/getProviderStatusDa"/>
+		<caqh:get-provider-status-da doc:name="Get provider status-DirectAssure" doc:id="881a17fd-670c-4f28-b6be-e130af66fe5b" config-ref="CAQH_Config" Organization_Id="#[attributes.queryParams.Organization_Id]" Caqh_Provider_Id="#[attributes.queryParams.Caqh_Provider_Id]"/>
+		<ee:transform doc:name="response" doc:id="001ba6df-1373-43de-b65b-c593417df335" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

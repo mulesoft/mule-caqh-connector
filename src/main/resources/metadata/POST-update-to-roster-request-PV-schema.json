@@ -1,0 +1,43 @@
+{
+  "type": "array",
+  "items":
+    {
+      "type": "object",
+      "properties": {
+        "organization_id": {
+          "type": "string"
+        },
+        "caqh_provider_id": {
+          "type": "string"
+        },
+        "po_provider_id": {
+          "type": "string"
+        },
+        "last_recredential_date": {
+          "type": "string"
+        },
+        "next_recredential_date": {
+          "type": "string"
+        },
+        "delegation_flag": {
+          "type": "string"
+        },
+        "application_type": {
+          "type": "string"
+        },
+        "affiliation_flag": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "organization_id",
+        "caqh_provider_id",
+        "po_provider_id",
+        "last_recredential_date",
+        "next_recredential_date",
+        "delegation_flag",
+        "application_type",
+        "affiliation_flag"
+      ]
+    }   
+}

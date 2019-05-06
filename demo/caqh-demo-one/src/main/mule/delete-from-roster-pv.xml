@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="delete-from-roster-pvFlow" doc:id="f8640142-1109-4f31-ba20-c408e28822d5" >
+		<http:listener doc:name="8081/deleteFromRosterPv" doc:id="9db59c99-bf55-4703-a047-9046217a375f" config-ref="HTTP_Listener_config" path="/deleteFromRosterPv"/>
+		<ee:transform doc:name="Request" doc:id="4e0bd5fd-381d-4a89-be1b-50d38fc4758f" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<caqh:delete-from-roster-request-pv doc:name="Delete from roster request Proview" doc:id="e2bfb9d0-3c3c-4c6f-8283-c5222dd1ef46" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="response" doc:id="b3be745f-0d24-4464-a715-d1841c39b7ce" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

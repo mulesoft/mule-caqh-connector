@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:caqh="http://www.mulesoft.org/schema/mule/caqh"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/caqh http://www.mulesoft.org/schema/mule/caqh/current/mule-caqh.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="add-to-roster-daFlow" doc:id="e89732c4-ef23-4fa3-9701-8c193c401b29" >
+		<http:listener doc:name="8081/addToRosterDa" doc:id="b3f68674-bc60-4a69-af2d-51c9484b78c1" path="/addToRosterDa" config-ref="HTTP_Listener_config"/>
+		<caqh:add-to-roster-request-da doc:name="Add to roster request DirectAssure" doc:id="4f7044d2-3582-4969-ad5c-fe0a825daaa4" config-ref="CAQH_Config"/>
+		<ee:transform doc:name="response" doc:id="71c5c299-171b-451e-96ef-dedc978bacf9" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
