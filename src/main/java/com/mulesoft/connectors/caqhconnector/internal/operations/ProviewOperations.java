@@ -123,7 +123,7 @@ public class ProviewOperations extends ConnectorOperations<CAQHConfiguration, CA
      */
     @DisplayName(value = "Get Provider Credentials")
     @Throws(ErrorProvider.class)
-    @MediaType(value = APPLICATION_JSON, strict = false)
+    @MediaType(value = APPLICATION_XML, strict = false)
     @OutputJsonType(schema = "metadata/provider.json")
     public Result<InputStream, ResponseStatus> getProviderCredentials(@Config CAQHConfiguration configuration, @Connection CAQHConnection connection, String caqhProviderId, String organizationId, String attestationDate, @Optional String credentialSection) {
         return newExecutionBuilder(configuration, connection)

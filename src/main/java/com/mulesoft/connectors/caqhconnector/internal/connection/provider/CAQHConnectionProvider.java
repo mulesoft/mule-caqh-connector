@@ -3,9 +3,12 @@
  */
 package com.mulesoft.connectors.caqhconnector.internal.connection.provider;
 
+import com.mulesoft.connectors.caqhconnector.api.GetUpdateResultDTO;
 import com.mulesoft.connectors.caqhconnector.internal.connection.CAQHConnection;
 import com.mulesoft.connectors.caqhconnector.internal.connection.provider.param.ConnectionParameterGroup;
 import com.mulesoft.connectors.caqhconnector.internal.auth.CreateAuthentication;
+import com.mulesoft.connectors.caqhconnector.internal.exception.CAQHConnectorException;
+import com.mulesoft.connectors.caqhconnector.internal.util.CAQHUtil;
 import com.mulesoft.connectors.caqhconnector.internal.util.Constants;
 import com.mulesoft.connectors.caqhconnector.internal.util.RequestService;
 import com.mulesoft.connectors.caqhconnector.internal.util.Urls;
@@ -35,8 +38,15 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 
 
+import java.io.InputStream;
+import java.util.concurrent.CompletableFuture;
+
 import static com.mulesoft.connectors.caqhconnector.internal.config.CAQHConfiguration.getAddressValue;
+import static com.mulesoft.connectors.caqhconnector.internal.exception.ExceptionHandler.checkError;
+import static com.mulesoft.connectors.caqhconnector.internal.exception.ExceptionHandler.getError;
+import static com.mulesoft.connectors.caqhconnector.internal.util.ClassForName.GET_UPDATE_RESULT_DTO;
 import static com.mulesoft.connectors.caqhconnector.internal.util.Constants.TEST_BATCH_ID;
+import static com.mulesoft.connectors.caqhconnector.internal.util.RequestService.sendAsyncRequest;
 import static org.mule.runtime.api.meta.ExpressionSupport.NOT_SUPPORTED;
 import static org.mule.runtime.extension.api.annotation.param.ParameterGroup.CONNECTION;
 
@@ -54,7 +64,7 @@ import static org.mule.runtime.extension.api.annotation.param.ParameterGroup.CON
  */
 public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConnection> implements ConnectionProvider<CAQHConnection> {
 
-  private static final Logger logger = LoggerFactory.getLogger(CAQHConnectionProvider.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(CAQHConnectionProvider.class);
 
   @ParameterGroup(name = CONNECTION)
   @Placement(order = 1)
@@ -96,21 +106,32 @@ public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConn
     try {
       connection.invalidate();
     } catch (Exception e) {
-      logger.info("Error while disconnecting :", e);
+      LOGGER.info("Error while disconnecting :", e);
     }
   }
 
   @Override
   public ConnectionValidationResult validate(CAQHConnection connection) {
-    String address = getAddressValue();
-    String strUri = address + Urls.ROSTER_API + Urls.API + Urls.ROSTER;
-    HttpRequest request = connection.getHttpRequestBuilder().method(HttpConstants.Method.GET).uri(strUri)
-            .addQueryParam(Constants.BATCH_ID, TEST_BATCH_ID)
-            .build();
-    HttpResponse httpResponse = RequestService.requestCall(request, false, connection);
-    if (httpResponse.getStatusCode() == 200) {
-      return ConnectionValidationResult.success();
-    }
-    return ConnectionValidationResult.failure(httpResponse.getReasonPhrase().toString(),new Exception());
+	  String address = getAddressValue();
+	  String strUri = address + Urls.ROSTER_API + Urls.API + Urls.ROSTER;
+	  HttpRequest request = connection.getHttpRequestBuilder().method(HttpConstants.Method.GET).uri(strUri).build();
+	  CompletableFuture<HttpResponse> response = sendAsyncRequest(request, true, connection);
+	  try {
+		  if (response.get().getStatusCode() != 200) {
+			  String str = response.get().getStatusCode() + "";
+			  return ConnectionValidationResult.failure(str, new CAQHConnectorException(response.get().getReasonPhrase(),getError(response.get().getStatusCode())));
+		  }
+	  } catch (Exception e) {
+		  LOGGER.info("Error happened while validating the connection : " + e);
+	  }
+	  return ConnectionValidationResult.success();
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public String getPassword() {
+    return password;
   }
 }

@@ -9,6 +9,7 @@ import org.mule.runtime.http.api.domain.message.response.HttpResponse;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeoutException;
 
 public class RequestService {
@@ -29,4 +30,7 @@ public class RequestService {
 		return null;
 	}
 
+	public static CompletableFuture<HttpResponse> sendAsyncRequest(HttpRequest request, boolean value, CAQHConnection connection) {
+		return connection.getHttpClient().sendAsync(request, connection.getApiTimeout(), false, connection.getAuthentication());
+	}
 }
