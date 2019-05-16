@@ -52,7 +52,7 @@ public class ExceptionHandler {
 		}
 	}
 
-	private static ErrorTypes getError(Integer status) {
+	public static ErrorTypes getError(Integer status) {
 		return ErrorTypes.valueOf(status);
 	}
 }

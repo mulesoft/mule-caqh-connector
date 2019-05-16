@@ -9,23 +9,24 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
 http://www.mulesoft.org/schema/mule/salesforce-composite http://www.mulesoft.org/schema/mule/salesforce-composite/current/mule-salesforce-composite.xsd">
 	<flow name="caqh-salesforce-createFlow" doc:id="77f703d8-8382-469f-817f-ee38986d2b5a" >
-		<caqh:get-provider-credentials doc:name="Get Provider Credentials" doc:id="8618a16a-9264-42e4-99ee-f39caf5da3b5" config-ref="CAQH_Config" caqhProviderId="#[attributes.queryParams.caqhProviderId]" organizationId="#[attributes.queryParams.organizationId]" attestationDate="#[attributes.queryParams.attestationDate]"/>
-		<ee:transform doc:name="mapping from CAQH-to-SF" doc:id="b2b0cb45-1e08-4f5f-965b-9b16df973eae" >
+		<caqh:get-provider-credentials doc:name="Get Provider Credentials" doc:id="8618a16a-9264-42e4-99ee-f39caf5da3b5" config-ref="CAQH_Config" caqhProviderId="#[attributes.queryParams.caqhProviderId]" organizationId="#[attributes.queryParams.organizationId]" attestationDate="#[attributes.queryParams.attestationDate]" outputMimeType="application/xml"/>
+		<ee:transform doc:name="Transform Message" doc:id="dfecb368-7f2d-4686-a5c3-a008377ce7e0" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
-output application/java
+output application/json
 ---
 {
 	LastName: payload.Provider.LastName,
-	FirstName: payload.Provider.FirstName,
+	FirstName: payload.Provider.LastName,
 	CAQH_Provider_ID__c: "16033455",
 	CAQH_organization_id__c: "6013",
-	Provider_name__c: payload.Provider.MiddleName,
+	Provider_name__c: payload.Provider.LastName,
 	caqh_batch_id__c: ""
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-		<salesforce:create-single type="Contact" doc:name="Create provider in SF" doc:id="be9f4b4c-82cd-4282-998a-54ab48e3b9a5" config-ref="Salesforce_Config"/>
+		<salesforce:create-single type="Contact" doc:name="Create provider in SF" doc:id="be9f4b4c-82cd-4282-998a-54ab48e3b9a5" config-ref="Salesforce_Config">
+		</salesforce:create-single>
 		<ee:transform doc:name="Java-JSON-SFresponse" doc:id="b586869e-f46d-46a1-bf10-fb6d7841b42d" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -229,7 +230,7 @@ payload]]></ee:set-payload>
 			<salesforce:parameters ><![CDATA[#[output application/java
 ---
 {
-	name : "kiuwxinj xwehonru"
+	name : "qisbakre SMITH"
 }]]]></salesforce:parameters>
 		</salesforce:query-all>
 		<salesforce:delete-multiple doc:name="Delete multiple" doc:id="66076587-382a-4300-b902-2d3b22224295" config-ref="Salesforce_Config">
