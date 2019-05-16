@@ -1,0 +1,16 @@
+/.apt_generated/
+# maven
+target/
+
+# eclipse
+.classpath
+.settings/
+.project
+.factorypath
+
+# IDEA
+.idea/
+*.iml
+
+# log config
+log4j2.xml

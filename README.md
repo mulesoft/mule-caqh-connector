@@ -21,7 +21,7 @@ CAQH API v2.0.0
 Installation and Usage
 ----------------------
 
-For information about usage and installation you can check our documentation at https://www.mulesoft.com/exchange/com.mulesoft.connectors/mule-caqh-connector/.
+For information about usage and installation you can check our documentation at https://docs.mulesoft.com/connectors/caqh/caqh-connector.
 
 Reporting Issues
 ----------------

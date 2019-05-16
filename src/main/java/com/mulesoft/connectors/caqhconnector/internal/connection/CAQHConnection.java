@@ -76,11 +76,6 @@ public final class CAQHConnection implements ConnectorConnection {
 
     @Override
     public void validate() {
-        try {
-
-        } catch (Exception e) {
-            logger.info("Error while validate :", e);
-        }
     }
     public HttpAuthentication getAuthentication() {
         return authentication;
