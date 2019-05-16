@@ -57,10 +57,10 @@
     </dependency>
     </dependencies>
     <scm>
-        <connection>scm:git:ssh://sandeep-maddineni@bitbucket.org/ApiseroCloud/connector-caqh.git</connection>
-        <developerConnection>scm:git:ssh://sandeep-maddineni@bitbucket.org/ApiseroCloud/connector-caqh.git</developerConnection>
-        <url>https://sandeep-maddineni@bitbucket.org/ApiseroCloud/connector-caqh.git</url>
-        <tag>HEAD</tag>
+	    <connection>scm:git:git@github.com:mulesoft/mule-caqh-connector.git</connection>
+	    <developerConnection>scm:git:git@github.com:mulesoft/mule-caqh-connector.git</developerConnection>
+	    <url>https://github.com/mulesoft/mule-caqh-connector</url>
+            <tag>HEAD</tag>
     </scm>
     <build>
     <plugins>
