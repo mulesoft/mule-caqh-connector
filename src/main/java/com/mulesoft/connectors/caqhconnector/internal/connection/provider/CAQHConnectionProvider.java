@@ -64,7 +64,7 @@ import static org.mule.runtime.extension.api.annotation.param.ParameterGroup.CON
  */
 public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConnection> implements ConnectionProvider<CAQHConnection> {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(CAQHConnectionProvider.class);
+  private static final Logger logger = LoggerFactory.getLogger(CAQHConnectionProvider.class);
 
   @ParameterGroup(name = CONNECTION)
   @Placement(order = 1)
@@ -106,7 +106,7 @@ public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConn
     try {
       connection.invalidate();
     } catch (Exception e) {
-      LOGGER.info("Error while disconnecting :", e);
+	    logger.info("Error while disconnecting :", e);
     }
   }
 
@@ -122,7 +122,7 @@ public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConn
 			  return ConnectionValidationResult.failure(str, new CAQHConnectorException(response.get().getReasonPhrase(),getError(response.get().getStatusCode())));
 		  }
 	  } catch (Exception e) {
-		  LOGGER.info("Error happened while validating the connection : " + e);
+		  logger.info("Error happened while validating the connection : " + e);
 	  }
 	  return ConnectionValidationResult.success();
   }
