@@ -7,7 +7,7 @@ Add below dependency to caqh-demo pom.xml:
 <dependency>
 	<groupId>com.mulesoft.connectors</groupId>
     <artifactId>mule-caqh-connector</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
     <classifier>mule-plugin</classifier>
 </dependency>
 ```
