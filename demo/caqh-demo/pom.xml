@@ -4,7 +4,7 @@
 
 	<groupId>com.mycompany</groupId>
 	<artifactId>caqh-demo</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>mule-application</packaging>
 
 	<name>caqh-demo</name>
@@ -34,8 +34,8 @@
 	<dependencies>
 	<dependency>
         <groupId>com.mulesoft.connectors</groupId>
-        <artifactId>mule-caqh-connector</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+    	<artifactId>mule-caqh-connector</artifactId>
+    	<version>1.0.1-SNAPSHOT</version>
         <classifier>mule-plugin</classifier>
 	</dependency>
         <dependency>

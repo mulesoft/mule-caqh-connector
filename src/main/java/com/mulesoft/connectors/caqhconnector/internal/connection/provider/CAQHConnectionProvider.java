@@ -45,6 +45,7 @@ import static com.mulesoft.connectors.caqhconnector.internal.config.CAQHConfigur
 import static com.mulesoft.connectors.caqhconnector.internal.exception.ExceptionHandler.checkError;
 import static com.mulesoft.connectors.caqhconnector.internal.exception.ExceptionHandler.getError;
 import static com.mulesoft.connectors.caqhconnector.internal.util.ClassForName.GET_UPDATE_RESULT_DTO;
+import static com.mulesoft.connectors.caqhconnector.internal.util.Constants.BATCH_ID;
 import static com.mulesoft.connectors.caqhconnector.internal.util.Constants.TEST_BATCH_ID;
 import static com.mulesoft.connectors.caqhconnector.internal.util.RequestService.sendAsyncRequest;
 import static org.mule.runtime.api.meta.ExpressionSupport.NOT_SUPPORTED;
@@ -64,7 +65,7 @@ import static org.mule.runtime.extension.api.annotation.param.ParameterGroup.CON
  */
 public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConnection> implements ConnectionProvider<CAQHConnection> {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(CAQHConnectionProvider.class);
+  private static final Logger logger = LoggerFactory.getLogger(CAQHConnectionProvider.class);
 
   @ParameterGroup(name = CONNECTION)
   @Placement(order = 1)
@@ -106,7 +107,7 @@ public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConn
     try {
       connection.invalidate();
     } catch (Exception e) {
-      LOGGER.info("Error while disconnecting :", e);
+	    logger.info("Error while disconnecting :", e);
     }
   }
 
@@ -114,7 +115,8 @@ public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConn
   public ConnectionValidationResult validate(CAQHConnection connection) {
 	  String address = getAddressValue();
 	  String strUri = address + Urls.ROSTER_API + Urls.API + Urls.ROSTER;
-	  HttpRequest request = connection.getHttpRequestBuilder().method(HttpConstants.Method.GET).uri(strUri).build();
+	  HttpRequest request = connection.getHttpRequestBuilder().method(HttpConstants.Method.GET).uri(strUri)
+			  .addQueryParam(BATCH_ID, TEST_BATCH_ID).build();
 	  CompletableFuture<HttpResponse> response = sendAsyncRequest(request, true, connection);
 	  try {
 		  if (response.get().getStatusCode() != 200) {
@@ -122,7 +124,7 @@ public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConn
 			  return ConnectionValidationResult.failure(str, new CAQHConnectorException(response.get().getReasonPhrase(),getError(response.get().getStatusCode())));
 		  }
 	  } catch (Exception e) {
-		  LOGGER.info("Error happened while validating the connection : " + e);
+		  logger.info("Error happened while validating the connection : " + e);
 	  }
 	  return ConnectionValidationResult.success();
   }
