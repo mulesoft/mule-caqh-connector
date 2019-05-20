@@ -45,6 +45,7 @@ import static com.mulesoft.connectors.caqhconnector.internal.config.CAQHConfigur
 import static com.mulesoft.connectors.caqhconnector.internal.exception.ExceptionHandler.checkError;
 import static com.mulesoft.connectors.caqhconnector.internal.exception.ExceptionHandler.getError;
 import static com.mulesoft.connectors.caqhconnector.internal.util.ClassForName.GET_UPDATE_RESULT_DTO;
+import static com.mulesoft.connectors.caqhconnector.internal.util.Constants.BATCH_ID;
 import static com.mulesoft.connectors.caqhconnector.internal.util.Constants.TEST_BATCH_ID;
 import static com.mulesoft.connectors.caqhconnector.internal.util.RequestService.sendAsyncRequest;
 import static org.mule.runtime.api.meta.ExpressionSupport.NOT_SUPPORTED;
@@ -114,7 +115,8 @@ public class CAQHConnectionProvider extends ConnectorConnectionProvider<CAQHConn
   public ConnectionValidationResult validate(CAQHConnection connection) {
 	  String address = getAddressValue();
 	  String strUri = address + Urls.ROSTER_API + Urls.API + Urls.ROSTER;
-	  HttpRequest request = connection.getHttpRequestBuilder().method(HttpConstants.Method.GET).uri(strUri).build();
+	  HttpRequest request = connection.getHttpRequestBuilder().method(HttpConstants.Method.GET).uri(strUri)
+			  .addQueryParam(BATCH_ID, TEST_BATCH_ID).build();
 	  CompletableFuture<HttpResponse> response = sendAsyncRequest(request, true, connection);
 	  try {
 		  if (response.get().getStatusCode() != 200) {
