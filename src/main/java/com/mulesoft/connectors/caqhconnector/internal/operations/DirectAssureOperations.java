@@ -39,16 +39,16 @@ public class DirectAssureOperations extends ConnectorOperations<CAQHConfiguratio
 	}
 
     /**
-     * A PO can add one or more providers to the roster by submitting a call to the API. For this
+     * A partner organization (PO) can add one or more providers to the roster by submitting a call to the API. For this
      * there are different required and optional fields for the Quick Add verses the Initial Add, and at least one of the fields with an asterisk (*) is required to process an Initial Add.
-     * Returns the batch_id that is generated on successful addition of Providers on roster.
+     * Returns the batch_id that is generated on successful addition of providers on the roster.
      *
      * @param configuration     Configuration Object
-     * @param connection        Connection object.
-     * @param addToDABodies     List of providers to be added to Roster.
+     * @param connection        Connection object
+     * @param addToDABodies     List of providers to be added to roster
      * @return batch_id for the request
      */
-    @DisplayName("Add roster-DirectAssure")
+    @DisplayName("Add Providers - DirectAssure")
     @Throws(ErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/PUT-POST-DEL-roster-response.json")
@@ -60,14 +60,14 @@ public class DirectAssureOperations extends ConnectorOperations<CAQHConfiguratio
 
     /**
      * Method to update one or more providers existing on roster.
-     * Returns the batch_id that is generated on successful update of Providers on roster.
+     * Returns the batch_id that is generated on successful update of providers on the roster.
      *
      * @param configuration         Configuration Object
-     * @param connection            Connection object.
-     * @param updateDAByPutRequests List of providers to be updated in Roster.
+     * @param connection            Connection object
+     * @param updateDAByPutRequests List of providers to be updated in roster
      * @return batch_id for the request
     */
-    @DisplayName("Update roster-DirectAssure")
+    @DisplayName("Update Providers - DirectAssure (PUT)")
     @Throws(ErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/PUT-POST-DEL-roster-response.json")
@@ -81,14 +81,14 @@ public class DirectAssureOperations extends ConnectorOperations<CAQHConfiguratio
 
     /**
 	 * Method to update one or more providers existing on roster.
-	 * Returns the batch_id that is generated on successful update of Providers on roster.
+	 * Returns the batch_id that is generated on successful update of providers on the roster.
 	 *
 	 * @param configuration          Configuration Object
-	 * @param connection             Connection object.
-	 * @param updateDAByPostRequests List of providers to be updated in Proview.
+	 * @param connection             Connection object
+	 * @param updateDAByPostRequests List of providers to be updated in ProView
 	 * @return batch_id for the request
 	 */
-    @DisplayName("Update proview-DirectAssure")
+    @DisplayName("Update Providers - DirectAssure (POST)")
     @Throws(ErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/PUT-POST-DEL-roster-response.json")
@@ -104,10 +104,10 @@ public class DirectAssureOperations extends ConnectorOperations<CAQHConfiguratio
      *
      * @param configuration         Configuration Object
      * @param connection            Connection object
-     * @param deleteDAByPutBodies   List of providers to be deleted from Roster.
+     * @param deleteDAByPutBodies   List of providers to be deleted from the roster
      * @return batch_id for the request
      */
-    @DisplayName("Delete roster-DirectAssure")
+    @DisplayName("Delete Providers - DirectAssure (PUT)")
     @Throws(ErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/PUT-POST-DEL-roster-response.json")
@@ -126,7 +126,7 @@ public class DirectAssureOperations extends ConnectorOperations<CAQHConfiguratio
      * @param deleteDAByPostBodies   List of providers to be deleted from Proview.
      * @return batch_id for the request
      */
-    @DisplayName("Delete proview-DirectAssure")
+    @DisplayName("Delete Providers - DirectAssure (POST)")
     @Throws(ErrorProvider.class)
     @MediaType(value = MediaType.APPLICATION_JSON, strict = false)
     @OutputJsonType(schema = "metadata/PUT-POST-DEL-roster-response.json")
@@ -138,16 +138,16 @@ public class DirectAssureOperations extends ConnectorOperations<CAQHConfiguratio
 
     /**
      * The DirectAssure Status Check API web service can be used by Participating Organizations to view the status of providers in CAQH ProView.
-     * Before requesting DirectAssure Status Check API access, POs should have a business case and an existing application with which to consume and use the web service.
+     * Before requesting DirectAssure Status Check API access, partner organizations should have a business case and an existing application with which to consume and use the web service.
      * The DirectAssure Status Check API accepts one provider at a time.
      *
      * @param configuration    Configuration Object
-     * @param connection       Connection object.
-     * @param Organization_Id  Participating Organization Identifier.
-     * @param Caqh_Provider_Id CAQH assigned provider Identifier.
-     * @return Json response containing provider's status.
+     * @param connection       Connection object
+     * @param Organization_Id  Participating organization identifier
+     * @param Caqh_Provider_Id CAQH assigned provider identifier
+     * @return Json response containing provider's status
      */
-    @DisplayName(value = "Get provider status-DirectAssure")
+    @DisplayName(value = "Get Provider Status - DirectAssure")
     @Throws(ErrorProvider.class)
     @MediaType(value = ANY, strict = false)
     public Result<GetProviderStatusDTO, ResponseStatus> getProviderStatusDa(@Config CAQHConfiguration configuration, @Connection CAQHConnection connection, String Organization_Id, String Caqh_Provider_Id) {
